@@ -6,6 +6,7 @@ import Gravitas from './Components/Gravitas';
 import World from './Components/World';
 import Datas from './Components/Data';
 import NewsbodyData from './Components/newBodyData';
+import Footer from './Components/footer';
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
         <Route  path="/"  exact element={<NewsbodyData/>}></Route>
         <Route  path="/gravitas" exact element={<Datas/>}></Route>
       </Routes>
+      <Footer/>
     </Router>
     </>
   );
