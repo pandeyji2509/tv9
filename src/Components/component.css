@@ -3,7 +3,9 @@
 body {
   font-family: "Roboto", sans-serif;
 }
-
+.fl{
+  display: inline-block;
+}
 #player {
   display: inline-block;
   width: 100%;

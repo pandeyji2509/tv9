@@ -1,6 +1,6 @@
 import React from 'react';
 import "./component.css";
-import "./logo.png";
+import logo from "./logo.png";
 import { Link } from 'react-router-dom';
 export default function Header() {
   return (
@@ -15,8 +15,7 @@ export default function Header() {
             </ul>
           </div>
           <div className="col-xs-4 col-sm-6 col-md-5 mt-3 text-center logo-main">
-
-            <img height="45px" src="logo.png" />
+            <img height="45px" src={logo} />
           </div>
           <div className="col-xs-4 col-xs-p0 col-sm-3 col-md-4 sign-up pr-0">
             <ul className="navbar-nav d-flex flex-row-reverse mt-4">
@@ -40,8 +39,6 @@ export default function Header() {
                 <Link to="/" className="nav-link active" id="pills-home-tab" data-bs-target="#pills-home"
                 role="tab" aria-controls="pills-home" aria-selected="true">News</Link>
               </li>
-
-
               <li className="nav-item" role="presentation">
               {/* <button className="nav-link" id="pills-gravitas-tab" data-bs-toggle="pill" data-bs-target="#pills-gravitas"
               type="button" role="tab" aria-controls="pills-gravitas" aria-selected="true">Gravitas</button> */}
@@ -77,7 +74,6 @@ export default function Header() {
             </ul>
           </div>
         </div>
-
       </div>
     </>
   );

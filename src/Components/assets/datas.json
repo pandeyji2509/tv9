@@ -6,5 +6,13 @@
 {
     "id":2,
     "news":"Gravitas: NASA says 1500-feet-wide asteroid about to pass by Earth"
-}
+},
+    {
+        "id":3,
+        "news":"Gravitas: NASA says 1500-feet-wide asteroid about to pass by Earth"
+    },
+    {
+        "id":4,
+        "news":"Gravitas: NASA says 1500-feet-wide asteroid about to pass by Earth"
+    }
 ]
