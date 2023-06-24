@@ -4,21 +4,18 @@ import Newsbody from './Components/Newsbody';
 import { BrowserRouter as Router, Routes, Route,Link} from "react-router-dom";
 import Gravitas from './Components/Gravitas';
 import World from './Components/World';
+import Datas from './Components/Data';
 function App() {
   return (
     <>
     <Router>
-      <Header/>
+    <Header/>
+    <Datas/>
       <Routes>
-        <Route exact path="/" element={<Newsbody/>}></Route>
-        <Route  path="/gravitas" exact element={<Gravitas/>}></Route>
+        <Route  path="/"  exact element={<Newsbody/>}></Route>
+        <Route  path="/gravitas" exact element={<Datas/>}></Route>
       </Routes>
-      
     </Router>
- {/* <Header/>
- <Newsbody/>
- <Gravitas/>
- <World/> */}
     </>
   );
 }
