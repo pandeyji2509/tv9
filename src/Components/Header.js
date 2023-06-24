@@ -46,8 +46,7 @@ export default function Header() {
                   {/* <Link to="/gravitas" class="nav-link">Gravitas</Link> */}
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-world-tab" data-bs-toggle="pill" data-bs-target="#pills-world"
-                  type="button" role="tab" aria-controls="pills-world" aria-selected="true">World</button>
+                <Link as={Link} className="nav-link" to={"/World"}>World</Link>
               </li>
               <li className="nav-item" role="presentation">
                 <button className="nav-link" id="pills-science-tab" data-bs-toggle="pill" data-bs-target="#pills-science"

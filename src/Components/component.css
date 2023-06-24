@@ -1,11 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
-
+.grid{
+  display: grid;
+  columns: 3;
+}
+.fl{
+  display: flex;
+  flex-wrap: wrap;
+}
 body {
   font-family: "Roboto", sans-serif;
 }
-.fl{
-  display: inline-block;
-}
+
 #player {
   display: inline-block;
   width: 100%;
