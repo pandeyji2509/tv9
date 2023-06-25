@@ -2,6 +2,8 @@ import React from 'react';
 import "./component.css";
 import "./World.css"
 import worldBodyDatas from "./assets/WorldData.json";
+import Trending from "./assets/trending.json";
+import Videos from "./assets/videos.json"
 export default function World() {
     return (
         <div className='container'>
@@ -19,14 +21,14 @@ export default function World() {
             </h6>  
 
             { 
-        worldBodyDatas.length === 0 ? (
+        Trending.length === 0 ? (
             <p> Data is fetching.....</p>
         ) : (
-            worldBodyDatas.map((Data) =>
+            Trending.map((Data) =>
             <div className="latest-new read-m border-bottom border-2 pb-3">
             <div className="col-3 float-start">
                 <img
-                  src={Data.img1}
+                  src={Data.img}
                   alt="image" class="img-fluid"
                   />
               </div>
@@ -56,14 +58,14 @@ export default function World() {
 </ul>
 <div class="col-3 float-end">
   <img
-    src={Data.img2}
+    src={Data.img}
     alt="image" class="img-fluid" 
     />
 </div>
 <h3 class="h4 fw-bold">
   <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline}</a>
 </h3>
-<p>{Data.news2}</p>
+<p>{Data.news}</p>
 <a href="news.html" class="fw-bold">continue reading</a>
 </div>
           )  )}
@@ -72,51 +74,25 @@ export default function World() {
             <h6 class="text-dark h4 fw-bold display-inline mb-4">
               Videos <i class="bi bi-arrow-right-circle fs-5"></i>
             </h6>
+            { 
+        Videos.length === 0 ? (
+            <p> Data is fetching.....</p>
+        ) : (
+            Videos.map((Data) =>
             <div class="video-wrapper">
               <figure class="figure">
-                <iframe src="https://www.youtube.com/embed/4p5g04skIrs" title="@kcr _in _maharastra @KCRWORLD"
+                <iframe src={Data.video} title={Data.title}
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                 <figcaption class="figure-caption">
                   <h6 class="h6 fw-bold">
                     <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
-                      typesetting
-                      industry. </a>
+                      {Data.content} </a>
                   </h6>
                 </figcaption>
               </figure>
             </div>
-
-            <div class="video-wrapper">
-              <figure class="figure">
-                <iframe src="https://www.youtube.com/embed/erW-YQewNMg" title="కెసిఆర్ మునుగోడు సభ #highlights"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-                <figcaption class="figure-caption">
-                  <h6 class="h6 fw-bold">
-                    <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
-                      typesetting
-                      industry. </a>
-                  </h6>
-                </figcaption>
-              </figure>
-            </div>
-            <div class="video-wrapper">
-              <figure class="figure"></figure>
-              <iframe src="https://www.youtube.com/embed/GWz9zmlvLC4"
-                title="పోచారంమున్సిపల్ కార్మికులతో వినూత్న కార్యక్రమాలతో  మేడే జరుపుకున్న చైర్మెన్ బోయపల్లి కొండల్ రెడ్డి"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-              <figcaption class="figure-caption">
-                <h6 class="h6 fw-bold">
-                  <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
-                    typesetting
-                    industry. </a>
-                </h6>
-              </figcaption>
-            </div>
+            ))}
           </div>
         </div>
         </div>

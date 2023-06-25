@@ -1,23 +1,17 @@
 [ 
     {
-        "img1":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358706-untitled-design.jpg?imwidth=640",
-        "news1":"Can you trust your ears? AI voice scams rattle US",
-        "headline":"BTS turns 10! Ever wondered what BTS stands for?",
-        "news2":"The acronym BTS, the name of the famous Korean boy band, is often understood to stand for Bulletproof Boy Scouts. BTS is sometimes also...",
-        "img":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358720-2023-06-11t125624z2lynxmpej5a04trtroptp4health-coronavirus-china-wedding-dresses.JPG?imwidth=640"
+        "img":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358706-untitled-design.jpg?imwidth=640",
+        "news":"Can you trust your ears? AI voice scams rattle US",
+        "headline":"BTS turns 10! Ever wondered what BTS stands for?"
     },
     {
-       "img1":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358705-indira.png?imwidth=640",
-       "news1":"Displaying assassination tableau of India’s former PM Indira Gandhi ‘not hate crime’: Canada",
-       "headline":"BTS turns 10! Ever wondered what BTS stands for?",
-       "news2":"The acronym BTS, the name of the famous Korean boy band, is often understood to stand for Bulletproof Boy Scouts. BTS is sometimes also...",
-       "img2":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358720-2023-06-11t125624z2lynxmpej5a04trtroptp4health-coronavirus-china-wedding-dresses.JPG?imwidth=640"
+       "img":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358705-indira.png?imwidth=640",
+       "news":"Displaying assassination tableau of India’s former PM Indira Gandhi ‘not hate crime’: Canada",
+       "headline":"BTS turns 10! Ever wondered what BTS stands for?"
     },
     {
-        "img1":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358692-soros.png?imwidth=640",
-        "news1":"US billionaire George Soros hands over $25 billion empire to younger son Alex",
-        "headline":"BTS turns 10! Ever wondered what BTS stands for?",
-        "news2":"The acronym BTS, the name of the famous Korean boy band, is often understood to stand for Bulletproof Boy Scouts. BTS is sometimes also...",
-        "img2":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358720-2023-06-11t125624z2lynxmpej5a04trtroptp4health-coronavirus-china-wedding-dresses.JPG?imwidth=640"
+        "img":"https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358692-soros.png?imwidth=640",
+        "news":"US billionaire George Soros hands over $25 billion empire to younger son Alex",
+        "headline":"BTS turns 10! Ever wondered what BTS stands for?"
     }
 ]

@@ -1,6 +1,5 @@
 import React from 'react'
 import NewsbodyDatas from "./assets/newsbody.json";
-import Newsbody from './Newsbody';
 import "./newBody.css";
 function NewsbodyData() {
   console.log(NewsbodyDatas);

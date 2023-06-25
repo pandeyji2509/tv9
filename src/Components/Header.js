@@ -49,26 +49,19 @@ export default function Header() {
                 <Link as={Link} className="nav-link" to={"/World"}>World</Link>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-science-tab" data-bs-toggle="pill" data-bs-target="#pills-science"
-                  type="button" role="tab" aria-controls="pills-science" aria-selected="true">Science</button>
+                <Link as={Link} className="nav-link" to={"/Science"}>Science</Link>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-entertainment-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-entertainment" type="button" role="tab" aria-controls="pills-entertainment"
-                  aria-selected="true">Entertainment</button>
+                <Link as={Link} className="nav-link" to={"/Entertainment"}>Entertainment</Link>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-sports-tab" data-bs-toggle="pill" data-bs-target="#pills-sports"
-                  type="button" role="tab" aria-controls="pills-sports" aria-selected="true">Sports</button>
+                <Link as={Link} className="nav-link" to={"/Sports"}>Sports</Link>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-business-tab" data-bs-toggle="pill" data-bs-target="#pills-business"
-                  type="button" role="tab" aria-controls="pills-business" aria-selected="true">Business</button>
+                <Link as={Link} className="nav-link" to={"/Business"}>Business</Link>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-live-tab" data-bs-toggle="pill" data-bs-target="#pills-live"
-                  type="button" role="tab" aria-controls="pills-live" aria-selected="true"><i
-                    className="bi bi-tv fs-6 text-dark"></i> Live TV</button>
+                <Link as={Link} className="nav-link bi bi-tv fs-6 text-dark" to={"/Livetv"}> Live Tv</Link>
               </li>
             </ul>
           </div>

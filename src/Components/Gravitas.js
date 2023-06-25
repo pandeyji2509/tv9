@@ -2,6 +2,7 @@ import React from 'react';
 import "./component.css";
 import GravitasData from './assets/trending.json';
 import Gravi from "./assets/gravitas.json"
+import Videos from "./assets/videos.json"
 export default function Gravitas() {
     return (
      <div className='container'>
@@ -89,50 +90,25 @@ export default function Gravitas() {
             <h6 class="text-dark h4 fw-bold display-inline mb-4">
               Videos <i class="bi bi-arrow-right-circle fs-5"></i>
             </h6>
+            { 
+        Videos.length === 0 ? (
+            <p> Data is fetching.....</p>
+        ) : (
+            Videos.map((Data) =>
             <div class="video-wrapper">
               <figure class="figure">
-                <iframe src="https://www.youtube.com/embed/4p5g04skIrs" title="@kcr _in _maharastra @KCRWORLD"
+                <iframe src={Data.video} title={Data.title}
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                 <figcaption class="figure-caption">
                   <h6 class="h6 fw-bold">
                     <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
-                      typesetting
-                      industry. </a>
+                      {Data.content} </a>
                   </h6>
                 </figcaption>
               </figure>
             </div>
-            <div class="video-wrapper">
-              <figure class="figure">
-                <iframe src="https://www.youtube.com/embed/erW-YQewNMg" title="కెసిఆర్ మునుగోడు సభ #highlights"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-                <figcaption class="figure-caption">
-                  <h6 class="h6 fw-bold">
-                    <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
-                      typesetting
-                      industry. </a>
-                  </h6>
-                </figcaption>
-              </figure>
-            </div>
-            <div class="video-wrapper">
-              <figure class="figure"></figure>
-              <iframe src="https://www.youtube.com/embed/GWz9zmlvLC4"
-                title="పోచారంమున్సిపల్ కార్మికులతో వినూత్న కార్యక్రమాలతో  మేడే జరుపుకున్న చైర్మెన్ బోయపల్లి కొండల్ రెడ్డి"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-              <figcaption class="figure-caption">
-                <h6 class="h6 fw-bold">
-                  <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
-                    typesetting
-                    industry. </a>
-                </h6>
-               </figcaption>
-            </div>
+            ))}
           </div>
 </div> 
         </div>
