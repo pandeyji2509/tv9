@@ -4,9 +4,7 @@ import NewsbodyDatas from "./assets/newsbody.json";
 import "./newBody.css";
 import dummy from './assets/dummy.json';
 function NewsbodyData() {
-  const [jso,setjso]=useState();
-  const [trend,trending]=useState();
-  
+
   async function fet(){
     const resp=await fetch(
       `${process.env.REACT_APP_Base_Url}show_10_articles/`
@@ -76,10 +74,10 @@ function NewsbodyData() {
                           alt="image" class="img-fluid "/>
                       </div>
                       <h3 class="h4 fw-bold">
-                        <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.fields.title} </a>
+                        <Link to={`/Detailhome/${Data.pk}`} class="nav-link p-0 m-0 text-dark">{Data.fields.title} </Link>
                       </h3>
                       <p>{Data.fields.content}</p>
-                      <a href="news.html" class="fw-bold">continue reading</a>
+                      <Link to={`/Detailhome/${Data.pk}`} class="fw-bold">continue reading...</Link>
                     </div>
              )
              ):(

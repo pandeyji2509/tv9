@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState,useEffect} from 'react';
 import "./component.css";
 import "./World.css";
 import { Link } from 'react-router-dom';
@@ -6,6 +6,48 @@ import worldBodyDatas from "./assets/WorldData.json";
 import Trending from "./assets/trending.json";
 import Videos from "./assets/videos.json"
 export default function World() {
+  const [newbod, setnewbod] = useState({
+    loading: true,
+    articles: [],
+  });
+  const [trending, seTrending] = useState({
+    loading: true,
+    articles: [],
+  });
+    async function fet(){
+      const resp=await fetch(
+        `${process.env.REACT_APP_Base_Url}show_category_articles/?category=Sww`
+      );
+      // console.log(resp.json())
+      return await resp.json();
+    }
+    async function fetTrend(){
+      const resp=await fetch(
+        `${process.env.REACT_APP_Base_Url}trending/`
+      );
+      // console.log(resp.json())
+      return await resp.json();
+    }
+
+    // fet();
+    useEffect(() => {
+      (async () => {
+        const newbod = await fet();
+        console.log(eval(newbod.result));
+        setnewbod({ loading: false, articles: eval(newbod.result) });
+      })();
+    }, []);
+    console.log(newbod);
+
+    //trending
+  useEffect(() => {
+    (async () => {
+      const trending = await fetTrend();
+      console.log(eval(trending.result));
+      seTrending({ loading: false, articles: eval(trending.result) });
+    })();
+  }, []);
+  console.log(trending);
     return (
         <div className='container'>
         <div className="">
@@ -20,27 +62,28 @@ export default function World() {
         <h6 className="text-dark h4 fw-bold display-inline mb-4">
               Trending <i className="bi bi-arrow-right-circle fs-5"></i>
             </h6>  
-
             { 
-        Trending.length === 0 ? (
+              trending.loading ? (
             <p> Data is fetching.....</p>
-        ) : (
-            Trending.map((Data) =>
+            ) : trending !== 0 ? (
+            trending.articles.map((Data) =>
             <div className="latest-new read-m border-bottom border-2 pb-3">
             <div className="col-3 float-start">
                 <img
-                  src={Data.img}
+                  src={Data.fields.cover_image}
                   alt="image" class="img-fluid"
                   />
               </div>
               <div className="padd col-9 float-end pl-10">
                 <h6 className="h6 fw-bold">
-                  <a href="news.html" className="nav-link p-0 text-dark text-justify">
-                    {Data.news1}
-                  </a>
+                  <Link to={`/Detailworld/${Data.pk}`} className="nav-link p-0 text-dark text-justify">
+                    {Data.fields.title}
+                  </Link>
                 </h6>
               </div>
             </div>  )
+        ):(
+          <p>No results to show</p>
         )
     }
         </div>
@@ -49,27 +92,30 @@ export default function World() {
               World News <i class="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             { 
-        worldBodyDatas.length === 0 ? (
-            <p> Data is fetching.....</p>
-        ) : (
-            worldBodyDatas.map((Data) =>
+              newbod.loading ? (
+                  <p> Data is fetching.....</p>
+) :  newbod.articles.length !== 0 ?  (
+      newbod.articles.map((Data) =>
             <div class="latest-new border-bottom border-2 pb-4">
 <ul class="navbar-nav d-flex flex-row mt-2 mb-2">
-  <li class="mx-1"><span class="mt-2 d-block">{Data.date}</span></li>
+  <li class="mx-1"><span class="mt-2 d-block">{Data.fields.created_at}</span></li>
 </ul>
 <div class="col-3 float-end">
   <img
-    src={Data.img}
+    src={Data.cover_image}
     alt="image" class="img-fluid" 
     />
 </div>
 <h3 class="h4 fw-bold">
-  <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline}</a>
+  <Link class="nav-link p-0 m-0 text-dark">{Data.fields.title}</Link>
 </h3>
-<p>{Data.news}</p>
-<Link to={`/Detailworld/${Data.id}`} class="fw-bold">continue reading</Link>
+<p>{Data.fields.content}</p>
+<Link to={`/Detailworld/${Data.pk}`} class="fw-bold">continue reading</Link>
 </div>
-          )  )}
+          )  ):(
+            <p>No articles found</p>
+          ) 
+          }
            </div>
            <div class="col-sm-3">
             <h6 class="text-dark h4 fw-bold display-inline mb-4">
