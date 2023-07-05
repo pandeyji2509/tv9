@@ -2,6 +2,7 @@ import React from 'react';
 import Trending from "./assets/trending.json";
 import EntertainmentData from "./assets/EntertainmentData.json";
 import Videos from "./assets/videos.json"
+import { Link } from 'react-router-dom';
 function Entertainment() {
   return (
     <div className='container'>
@@ -61,7 +62,7 @@ Trending.map((Data) =>
                 <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline} </a>
               </h3>
               <p>{Data.news}</p>
-              <a href="news.html" class="fw-bold">continue reading</a>
+              <Link to={`/Detailentertainment/${Data.id}`} class="fw-bold">continue reading</Link>
             </div>
 ))}
 <nav class="mt-3 mb-5" aria-label="Page navigation">

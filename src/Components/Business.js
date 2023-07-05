@@ -3,7 +3,8 @@ import "./component.css";
 import "./World.css"
 import BuisnessData from "./assets/BuisnessData.json";
 import Trending from "./assets/trending.json";
-import Videos from "./assets/videos.json"
+import Videos from "./assets/videos.json";
+import { Link } from 'react-router-dom';
 export default function Sports() {
     return (
         <div className='container'>
@@ -66,7 +67,7 @@ export default function Sports() {
   <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline}</a>
 </h3>
 <p>{Data.news}</p>
-<a href="news.html" class="fw-bold">continue reading</a>
+<Link to={`/Detailbusiness/${Data.id}`} class="fw-bold">continue reading</Link>
 </div>
           )  )}
            </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./component.css";
 import GravitasData from './assets/trending.json';
 import Gravi from "./assets/gravitas.json"
@@ -59,11 +60,11 @@ export default function Gravitas() {
                   alt="image" class="img-fluid "/>
               </div>
               <h3 class="h4 fw-bold">
-                <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline}
-         </a>
+                <Link to={`/Detail/${Data.id}`} class="nav-link p-0 m-0 text-dark">{Data.headline}
+         </Link>
               </h3>
-              <p>{Data.news}</p>
-              <a href="news.html" class="fw-bold">continue reading</a>
+              <p>{Data.paragraph.slice(0,200)}</p>
+              <Link to={`/Detail/${Data.id}`} class="fw-bold">continue reading</Link>
             </div>
     ))}
             <nav class="mt-3 mb-5" aria-label="Page navigation">
@@ -102,7 +103,7 @@ export default function Gravitas() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                 <figcaption class="figure-caption">
                   <h6 class="h6 fw-bold">
-                    <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
+                    <a href="news.html" class="nav-link p-0 m-0 text-dark">
                       {Data.content} </a>
                   </h6>
                 </figcaption>

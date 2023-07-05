@@ -1,6 +1,7 @@
 import React from 'react';
 import "./component.css";
-import "./World.css"
+import "./World.css";
+import { Link } from 'react-router-dom';
 import worldBodyDatas from "./assets/WorldData.json";
 import Trending from "./assets/trending.json";
 import Videos from "./assets/videos.json"
@@ -54,7 +55,7 @@ export default function World() {
             worldBodyDatas.map((Data) =>
             <div class="latest-new border-bottom border-2 pb-4">
 <ul class="navbar-nav d-flex flex-row mt-2 mb-2">
-  <li class="mx-1"><span class="mt-2 d-block">12 June, 2023</span></li>
+  <li class="mx-1"><span class="mt-2 d-block">{Data.date}</span></li>
 </ul>
 <div class="col-3 float-end">
   <img
@@ -66,7 +67,7 @@ export default function World() {
   <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline}</a>
 </h3>
 <p>{Data.news}</p>
-<a href="news.html" class="fw-bold">continue reading</a>
+<Link to={`/Detailworld/${Data.id}`} class="fw-bold">continue reading</Link>
 </div>
           )  )}
            </div>

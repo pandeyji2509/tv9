@@ -9,7 +9,7 @@ export default function Header() {
         <div className="row border-bottom pb-3">
           <div className="col-xs-4 col-sm-3 col-md-3 left-icon pl-0">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 flex-row mt-4 float-start">
-              <li style={{ marginRight: "1.5rem!important" }}><a href="#"><i className="bi bi-list fs-4 text-dark"></i></a></li>
+              <li style={{ marginRight: "1.5rem!important" }}><Link to="/dashboard"><i className="bi bi-list fs-4 text-dark" ></i></Link></li>
               <li className="mx-3 mt-1"><a href="#"><i className="bi bi-search fs-6 text-dark"></i></a></li>
               <li className="mx-3 mt-1"><a href="#"><i className="bi bi-bell-fill fs-6 text-dark"></i></a></li>
             </ul>
@@ -61,7 +61,7 @@ export default function Header() {
                 <Link as={Link} className="nav-link" to={"/Business"}>Business</Link>
               </li>
               <li className="nav-item" role="presentation">
-                <Link as={Link} className="nav-link bi bi-tv fs-6 text-dark" to={"/Livetv"}> Live Tv</Link>
+                <Link as={Link} className="nav-link bi bi-tv fs-6 text-dark" to={"/Livetv"}>Live Tv</Link>
               </li>
             </ul>
           </div>

@@ -1,8 +1,70 @@
-import React from 'react'
+import React ,{useState,useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import NewsbodyDatas from "./assets/newsbody.json";
 import "./newBody.css";
+import dummy from './assets/dummy.json';
 function NewsbodyData() {
-  console.log(NewsbodyDatas);
+  const [jso,setjso]=useState();
+  const [trend,trending]=useState();
+  const fet1=()=>{
+    let headers = new Headers();
+    headers.append('Access-Control-Allow-Origin', `${process.env.REACT_APP_CORS}`);
+    headers.append('Access-Control-Allow-Credentials', 'true');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    fetch(`${process.env.REACT_APP_Base_Url}/show_10_articles/`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setjso(json.results);
+          console.log("JSON= ", json); 
+      });
+  }
+  var newsdata;
+  useEffect(()=>{
+    fet1();
+  },[]);  
+  if(jso===undefined){
+    console.log(jso);
+  }
+  else{
+    newsdata=jso;
+    console.log(newsdata)
+  }
+  // const fet2=()=>{
+  //   let headers = new Headers();
+  //   headers.append('Access-Control-Allow-Origin', `${process.env.REACT_APP_CORS}`);
+  //   headers.append('Access-Control-Allow-Credentials', 'true');
+  //   headers.append('Content-Type', 'application/json');
+  //   headers.append('Accept', 'application/json');
+  //   fetch(`${process.env.REACT_APP_Base_Url}/show_10_articles/`, {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json" },
+  //     credentials: "include",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setjso(json.results);
+  //         console.log("JSON= ", json); 
+  //     });
+  // }
+  // var trendata;
+  // useEffect(()=>{
+  //   fet1();
+  // },[]);  
+  // if(jso===undefined){
+  //   console.log(jso);
+  // }
+  // else{
+  //   trendata=jso;
+  //   console.log(trendata)
+  // }
+  let dummys=eval(dummy.result)
+   console.log(dummys);
+   let newbod=dummys;
   return (
     <div className="container" id="">
       <div class="tab-content" id="pills-tabContent">
@@ -14,16 +76,16 @@ function NewsbodyData() {
               </h6>
               <div id="player"></div>
           { 
-        NewsbodyDatas.length === 0 ? (
+            newbod.length===0 ? (
             <p> Data is fetching.....</p>
         ) : (
-          NewsbodyDatas.map((Data) =>
+           newbod.map((Data) =>
               <div class="latest-new border-bottom border-2 pb-4 my-3">
                 <h3 class="h4 fw-bold">
-                  <a href="#" class="nav-link p-0 m-0 text-dark">{Data.headline}</a>
+                <Link to={`/Detailhome/${Data.pk}`} class="nav-link p-0 m-0 text-dark">{Data.fields.title}</Link>
                 </h3>
-                <p>{Data.news}</p>
-                <a href="#" class="fw-bold">continue reading</a>
+                <p>{Data.fields.content}....</p>
+                <Link to={`/Detailhome/${Data.pk}`} class="fw-bold">continue reading</Link>
               </div>
             ))}
         </div>
@@ -32,24 +94,24 @@ function NewsbodyData() {
               Latest News <i class="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             { 
-              NewsbodyDatas.length === 0 ? (
+              newbod.length === 0 ? (
                   <p> Data is fetching.....</p>
                  ) : (
-                  NewsbodyDatas.map((Data) =>
+                  newbod.map((Data) =>
                   <div class="latest-new border-bottom border-2 pb-4">
                       <ul class="navbar-nav d-flex flex-row mt-2 mb-2">
-                        <li class=" dark"><a class="text-dark nav-link fs-6 fw-bold" href="#">{Data.genre}</a></li>
-                        <li class="mx-1"><span class="mt-2 d-block">{Data.date}</span></li>
+                        <li class=" dark"><a class="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories}</a></li>
+                        <li class="mx-1"><span class="mt-2 d-block">{Data.fields.created_at}</span></li>
                       </ul>
                       <div class="col-3 float-end">
                         <img
-                          src="https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358720-2023-06-11t125624z2lynxmpej5a04trtroptp4health-coronavirus-china-wedding-dresses.JPG?imwidth=640"
+                          src={Data.fields.cover_image}
                           alt="image" class="img-fluid "/>
                       </div>
                       <h3 class="h4 fw-bold">
-                        <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline} </a>
+                        <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.fields.title} </a>
                       </h3>
-                      <p>{Data.news}</p>
+                      <p>{Data.fields.content}</p>
                       <a href="news.html" class="fw-bold">continue reading</a>
                     </div>
              )
@@ -61,24 +123,24 @@ function NewsbodyData() {
               Most Read <i class="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             {
-            NewsbodyDatas.length === 0 ? (
+            newbod.length === 0 ? (
                   <p> Data is fetching.....</p>
                  ) : (
-                  NewsbodyDatas.map((Data) =>
+                 newbod.map((Data) =>
                   <div class="latest-new read-m">
               <div class="col-9 float-start">
                 <ul class="navbar-nav d-flex flex-row mt-1 mb-1">
-                  <li class=" dark"><a class="text-dark nav-link fs-6 fw-bold" href="#">{Data.genre}</a></li>
-                  <li class="mx-1"><span class="mt-2 d-block">{Data.date}</span></li>
+                  <li class=" dark"><a class="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories}</a></li>
+                  <li class="mx-1"><span class="mt-2 d-block">{Data.fields.created_at}</span></li>
                 </ul>
                 <h5 class="h5 fw-bold">
-                  <a href="news.html" class="nav-link p-0 m-0 text-dark">{Data.headline}</a>
+                <Link to={`/Detailhome/`} class="nav-link p-0 m-0 text-dark">{Data.fields.title}</Link>
                 </h5>
-                <a href="news.html" class="fw-bold">continue reading</a>
+                <Link to={`/Detailhome/`} class="fw-bold">continue reading</Link>
               </div>
               <div class="col-3 float-end">
                 <img
-                  src="https://cdn.wionews.com/sites/default/files/styles/photo_2/public/2023/06/12/358706-untitled-design.jpg?imwidth=640"
+                  src={Data.fields.cover_image}
                   alt="image" class="img-fluid"
                   />
               </div>
