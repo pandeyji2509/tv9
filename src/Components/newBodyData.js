@@ -6,65 +6,29 @@ import dummy from './assets/dummy.json';
 function NewsbodyData() {
   const [jso,setjso]=useState();
   const [trend,trending]=useState();
-  const fet1=()=>{
-    let headers = new Headers();
-    headers.append('Access-Control-Allow-Origin', `${process.env.REACT_APP_CORS}`);
-    headers.append('Access-Control-Allow-Credentials', 'true');
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-    fetch(`${process.env.REACT_APP_Base_Url}/show_10_articles/`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        setjso(json.results);
-          console.log("JSON= ", json); 
-      });
+  
+  async function fet(){
+    const resp=await fetch(
+      `${process.env.REACT_APP_Base_Url}show_10_articles/`
+    );
+    // console.log(resp.json())
+    return await resp.json();
   }
-  var newsdata;
-  useEffect(()=>{
-    fet1();
-  },[]);  
-  if(jso===undefined){
-    console.log(jso);
-  }
-  else{
-    newsdata=jso;
-    console.log(newsdata)
-  }
-  // const fet2=()=>{
-  //   let headers = new Headers();
-  //   headers.append('Access-Control-Allow-Origin', `${process.env.REACT_APP_CORS}`);
-  //   headers.append('Access-Control-Allow-Credentials', 'true');
-  //   headers.append('Content-Type', 'application/json');
-  //   headers.append('Accept', 'application/json');
-  //   fetch(`${process.env.REACT_APP_Base_Url}/show_10_articles/`, {
-  //     method: "GET",
-  //     headers: { "Content-Type": "application/json" },
-  //     credentials: "include",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       setjso(json.results);
-  //         console.log("JSON= ", json); 
-  //     });
-  // }
-  // var trendata;
-  // useEffect(()=>{
-  //   fet1();
-  // },[]);  
-  // if(jso===undefined){
-  //   console.log(jso);
-  // }
-  // else{
-  //   trendata=jso;
-  //   console.log(trendata)
-  // }
-  let dummys=eval(dummy.result)
-   console.log(dummys);
-   let newbod=dummys;
+  const [newbod, setnewbod] = useState({
+    loading: true,
+    articles: [],
+  });
+  // fet();
+  useEffect(() => {
+    (async () => {
+      const newbod = await fet();
+      console.log(eval(newbod.result));
+      setnewbod({ loading: false, articles: eval(newbod.result) });
+    })();
+  }, []);
+  console.log(newbod);
+
+ 
   return (
     <div className="container" id="">
       <div class="tab-content" id="pills-tabContent">
@@ -76,10 +40,10 @@ function NewsbodyData() {
               </h6>
               <div id="player"></div>
           { 
-            newbod.length===0 ? (
+            newbod.loading ? (
             <p> Data is fetching.....</p>
-        ) : (
-           newbod.map((Data) =>
+        ) : newbod !== 0 ? (
+           newbod.articles.map((Data) =>
               <div class="latest-new border-bottom border-2 pb-4 my-3">
                 <h3 class="h4 fw-bold">
                 <Link to={`/Detailhome/${Data.pk}`} class="nav-link p-0 m-0 text-dark">{Data.fields.title}</Link>
@@ -87,17 +51,20 @@ function NewsbodyData() {
                 <p>{Data.fields.content}....</p>
                 <Link to={`/Detailhome/${Data.pk}`} class="fw-bold">continue reading</Link>
               </div>
-            ))}
+            ))
+            :(
+              <p>No results to show</p>
+            )}
         </div>
       <div class="col-sm-4 latest_nws">
             <h6 class="text-dark h3 fw-bold display-inline">
               Latest News <i class="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             { 
-              newbod.length === 0 ? (
+              newbod.loading ? (
                   <p> Data is fetching.....</p>
-                 ) : (
-                  newbod.map((Data) =>
+                 ) : newbod.articles.length !== 0 ?  (
+                  newbod.articles.map((Data) =>
                   <div class="latest-new border-bottom border-2 pb-4">
                       <ul class="navbar-nav d-flex flex-row mt-2 mb-2">
                         <li class=" dark"><a class="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories}</a></li>
@@ -115,6 +82,8 @@ function NewsbodyData() {
                       <a href="news.html" class="fw-bold">continue reading</a>
                     </div>
              )
+             ):(
+              <p>No articles found</p>
              )}
       </div>
 
@@ -123,10 +92,10 @@ function NewsbodyData() {
               Most Read <i class="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             {
-            newbod.length === 0 ? (
+              newbod.loading ? (
                   <p> Data is fetching.....</p>
-                 ) : (
-                 newbod.map((Data) =>
+                 ) : newbod.articles.length !== 0 ?  (
+                 newbod.articles.map((Data) =>
                   <div class="latest-new read-m">
               <div class="col-9 float-start">
                 <ul class="navbar-nav d-flex flex-row mt-1 mb-1">
@@ -134,9 +103,9 @@ function NewsbodyData() {
                   <li class="mx-1"><span class="mt-2 d-block">{Data.fields.created_at}</span></li>
                 </ul>
                 <h5 class="h5 fw-bold">
-                <Link to={`/Detailhome/`} class="nav-link p-0 m-0 text-dark">{Data.fields.title}</Link>
+                <Link to={`/Detailhome/${Data.pk}`} class="nav-link p-0 m-0 text-dark">{Data.fields.title}</Link>
                 </h5>
-                <Link to={`/Detailhome/`} class="fw-bold">continue reading</Link>
+                <Link to={`/Detailhome/${Data.pk}`} class="fw-bold">continue reading</Link>
               </div>
               <div class="col-3 float-end">
                 <img
@@ -145,7 +114,9 @@ function NewsbodyData() {
                   />
               </div>
             </div>
-                ))}
+                )):(
+                  <p>No results to show</p>
+                )}
             </div>
         </div>
         <div class="container mb-3 mt-3">
