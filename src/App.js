@@ -34,6 +34,7 @@ function App() {
           <Route path="/Detailhome/:id" exact element={<DetailNewsBody />}></Route>
           <Route path="/Detailworld/:id" exact element={<DetailWorld />}></Route>
           <Route path="/Detailentertainment/:id" exact element={<DetailEntertaiment />}></Route>
+          <Route path="/Entertainment/Detailentertainment/:id" exact element={<DetailEntertaiment />}></Route>
           <Route path="/DetailScience/:id" exact element={<DetailEntertaiment />}></Route>
           <Route path="/DetailSports/:id" exact element={<DetailSports />}></Route>
           <Route path="/Detailbusiness/:id" exact element={<Detailbusiness />}></Route>
