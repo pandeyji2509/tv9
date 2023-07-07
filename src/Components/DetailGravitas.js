@@ -124,7 +124,7 @@ function Detail() {
             <div className="latest-new read-m border-bottom border-2 pb-3">
             <div className="col-3 float-start">
                 <img
-                  src={Data.fields.cover_image}
+                  src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
                   alt="image" class="img-fluid"
                   />
               </div>
