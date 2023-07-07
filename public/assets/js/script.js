@@ -42,4 +42,4 @@ const formattedDate = `<strong>${day_name}</strong><br>
 ${day} ${month}, ${year}`;
 
 // Update the content of the HTML element with the formatted date
-document.getElementById("current-date").innerHTML = formattedDate;
+// document.getElementById("current-date").innerHTML = formattedDate;

@@ -66,7 +66,7 @@ function Science() {
 <div class="latest-new read-m border-bottom border-2 pb-3">
               <div class="col-3 float-start">
                 <img
-                  src={Data.fields.cover_image}
+                  src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
                   alt="image" class="img-fluid"/>
               </div>
               <div class="col-9 float-end pl-10 padd">
@@ -97,7 +97,7 @@ function Science() {
               </ul>
               <div class="col-3 float-end">
                 <img
-                  src={Data.fields.cover_image}
+                  src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
                   alt="image" class="img-fluid"/>
               </div>
               <h3 class="h4 fw-bold">

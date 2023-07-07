@@ -68,15 +68,15 @@ export default function Sports() {
             <div className="latest-new read-m border-bottom border-2 pb-3">
             <div className="col-3 float-start">
                 <img
-                  src={Data.fields.cover_image}
+                  src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
                   alt="image" class="img-fluid"
                   />
               </div>
               <div className="padd col-9 float-end pl-10">
                 <h6 className="h6 fw-bold">
-                  <a href="#" className="nav-link p-0 text-dark text-justify">
-                    {Data.fields.content}
-                  </a>
+                  <Link to={`/DetailSports/${Data.pk}`} className="nav-link p-0 text-dark text-justify">
+                    {Data.fields.title}
+                  </Link>
                 </h6>
               </div>
             </div>  )
@@ -100,7 +100,7 @@ export default function Sports() {
 </ul>
 <div class="col-3 float-end">
   <img
-    src={Data.fields.cover_image}
+    src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
     alt="image" class="img-fluid" 
     />
 </div>

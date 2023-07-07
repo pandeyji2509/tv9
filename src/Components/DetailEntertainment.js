@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import Trending from "./assets/trending.json";
 import GravitasData from "./assets/gravitas.json";
 function Detail() {
@@ -74,7 +74,7 @@ function Detail() {
             </div>
             <div class="container pl-0">
         <figure>
-            <img src={art.loading ? ("") : art.articles.length!==0 ? (`${art.articles[0].fields.cover_image}`) : ("") }
+            <img src={art.loading ? ("") : art.articles.length!==0 ? (`${process.env.REACT_APP_IMAGE}${art.articles[0].fields.cover_image}`) : ("") }
             alt="Image" class="img-fluid"/>
             <figcaption class="figure-caption">File photo...</figcaption>
         </figure>
@@ -124,15 +124,15 @@ function Detail() {
             <div className="latest-new read-m border-bottom border-2 pb-3">
             <div className="col-3 float-start">
                 <img
-                  src={Data.fields.cover_image}
+                  src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
                   alt="image" class="img-fluid"
                   />
               </div>
               <div className="padd col-9 float-end pl-10">
                 <h6 className="h6 fw-bold">
-                  <a href="#" className="nav-link p-0 text-dark text-justify">
+                  <Link to={`/Detailentertainment/${Data.pk}`} className="nav-link p-0 text-dark text-justify">
                     {Data.fields.title}
-                  </a>
+                  </Link>
                 </h6>
               </div>
             </div>  )

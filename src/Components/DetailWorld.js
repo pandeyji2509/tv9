@@ -74,7 +74,7 @@ function Detail() {
             </div>
             <div class="container pl-0">
         <figure>
-            <img src={art.loading ? ("") : art.articles.length!==0 ? (`${art.articles[0].fields.cover_image}`) : ("") }
+            <img src={art.loading ? ("") : art.articles.length!==0 ? (`${process.env.REACT_APP_IMAGE}${art.articles[0].fields.cover_image}`) : ("") }
             alt="Image" class="img-fluid"/>
             <figcaption class="figure-caption">File photo...</figcaption>
         </figure>
@@ -104,7 +104,7 @@ function Detail() {
             <div className="latest-new read-m border-bottom border-2 pb-3">
             <div className="col-3 float-start">
                 <img
-                  src={Data.fields.cover_image}
+                   src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
                   alt="image" class="img-fluid"
                   />
               </div>

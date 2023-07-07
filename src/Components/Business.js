@@ -69,9 +69,10 @@ export default function Sports() {
     trending.articles.map((Data) =>
             <div className="latest-new read-m border-bottom border-2 pb-3">
             <div className="col-3 float-start">
+            {/* {console.log(process.env.REACT_APP_IMAGE,Data.fields.cover_image)} */}
                 <img
-                  src={Data.fields.cover_image}
-                  alt="image" class="img-fluid"
+                  src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
+                  alt="image" className="img-fluid"
                   />
               </div>
               <div className="padd col-9 float-end pl-10">
@@ -88,52 +89,52 @@ export default function Sports() {
         )
     }
         </div>
-          <div class="col-sm-6">
-            <h6 class="text-dark h4 fw-bold display-inline mb-4">
-              Buisness News <i class="bi bi-arrow-right-circle fs-5"></i>
+          <div className="col-sm-6">
+            <h6 className="text-dark h4 fw-bold display-inline mb-4">
+              Buisness News <i className="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             { 
               newbod.loading ? (
                   <p> Data is fetching.....</p>
 ) :  newbod.articles.length !== 0 ?  (
     newbod.articles.map((Data) =>
-            <div class="latest-new border-bottom border-2 pb-4">
-<ul class="navbar-nav d-flex flex-row mt-2 mb-2">
-  <li class="mx-1"><span class="mt-2 d-block">{Data.fields.cover_image}</span></li>
+            <div className="latest-new border-bottom border-2 pb-4">
+<ul className="navbar-nav d-flex flex-row mt-2 mb-2">
+  <li className="mx-1"><span className="mt-2 d-block">{Data.fields.created_at}</span></li>
 </ul>
-<div class="col-3 float-end">
+<div className="col-3 float-end">
   <img
-    src={Data.fields.cover_image}
-    alt="image" class="img-fluid" 
+    src={`${process.env.REACT_APP_IMAGE}${Data.fields.cover_image}`}
+    alt="image" className="img-fluid" 
     />
 </div>
-<h3 class="h4 fw-bold">
-  <a href="#" class="nav-link p-0 m-0 text-dark">{Data.fields.title}</a>
+<h3 className="h4 fw-bold">
+  <a href="#" className="nav-link p-0 m-0 text-dark">{Data.fields.title}</a>
 </h3>
 <p>{Data.fields.content}</p>
-<Link to={`/Detailbusiness/${Data.pk}`} class="fw-bold">continue reading</Link>
+<Link to={`/Detailbusiness/${Data.pk}`} className="fw-bold">continue reading</Link>
 </div>
           )  ):(
             <p>No articles found</p>
           )}
            </div>
-           <div class="col-sm-3">
-            <h6 class="text-dark h4 fw-bold display-inline mb-4">
-              Videos <i class="bi bi-arrow-right-circle fs-5"></i>
+           <div className="col-sm-3">
+            <h6 className="text-dark h4 fw-bold display-inline mb-4">
+              Videos <i className="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             { 
         Videos.length === 0 ? (
             <p> Data is fetching.....</p>
         ) : (
             Videos.map((Data) =>
-            <div class="video-wrapper">
-              <figure class="figure">
+            <div className="video-wrapper">
+              <figure className="figure">
                 <iframe src={Data.video} title={Data.title}
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                <figcaption class="figure-caption">
-                  <h6 class="h6 fw-bold">
-                    <a href="news.html" class="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
+                <figcaption className="figure-caption">
+                  <h6 className="h6 fw-bold">
+                    <a href="news.html" className="nav-link p-0 m-0 text-dark">Lorem Ipsum is simply dummy text of and
                       {Data.content} </a>
                   </h6>
                 </figcaption>
