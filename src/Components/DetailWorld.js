@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Trending from "./assets/trending.json";
 import GravitasData from "./assets/gravitas.json";
 function Detail() {
@@ -36,14 +36,14 @@ function Detail() {
       console.log(eval(trending.result));
       seTrending({ loading: false, articles: eval(trending.result) });
     })();
-  }, []);
+  }, [id]);
   useEffect(() => {
     (async () => {
       const art = await fetart();
       console.log(eval(art.result));
       setArt({ loading: false, articles: eval(art.result) });
     })();
-  }, []);
+  }, [id]);
   console.log(art);
 
     // console.log(GravitasData[key.id-1]);
@@ -110,9 +110,9 @@ function Detail() {
               </div>
               <div className="padd col-9 float-end pl-10">
                 <h6 className="h6 fw-bold">
-                  <a href="#" className="nav-link p-0 text-dark text-justify">
+                  <Link to={`/Detailworld/${Data.pk}`} className="nav-link p-0 text-dark text-justify">
                     {Data.fields.title}
-                  </a>
+                  </Link>
                 </h6>
               </div>
             </div>  )

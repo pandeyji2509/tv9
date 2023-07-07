@@ -22,6 +22,14 @@ function App() {
       <Router>
         <Header />
         <Routes>
+        <Route exact path="/Detail/:id"  element={<DetailGravitas />}></Route>
+          <Route exact path="/Detailhome/:id" element={<DetailNewsBody />}></Route>
+          <Route exact path="/Detailworld/:id"  element={<DetailWorld />}></Route>
+          <Route exact path="/Detailentertainment/:id" element={<DetailEntertaiment />}></Route>
+          <Route exact path="/Entertainment/Detailentertainment/:id" element={<DetailEntertaiment />}></Route>
+          <Route exact path="/DetailScience/:id"  element={<DetailEntertaiment />}></Route>
+          <Route exact path="/DetailSports/:id" element={<DetailSports />}></Route>
+          <Route exact path="/Detailbusiness/:id"  element={<Detailbusiness />}></Route>
           <Route path="/" exact element={<NewsbodyData />}></Route>
           <Route path="/gravitas" exact element={<Gravitas />}></Route>
           <Route path="/World" exact element={<World />}></Route>
@@ -30,14 +38,7 @@ function App() {
           <Route path="/Sports" exact element={<Sports />}></Route>
           <Route path="/Business" exact element={<Business />}></Route>
           <Route path="/Livetv" exact element={<Livetv />}></Route>
-          <Route path="/Detail/:id" exact element={<DetailGravitas />}></Route>
-          <Route path="/Detailhome/:id" exact element={<DetailNewsBody />}></Route>
-          <Route path="/Detailworld/:id" exact element={<DetailWorld />}></Route>
-          <Route path="/Detailentertainment/:id" exact element={<DetailEntertaiment />}></Route>
-          <Route path="/Entertainment/Detailentertainment/:id" exact element={<DetailEntertaiment />}></Route>
-          <Route path="/DetailScience/:id" exact element={<DetailEntertaiment />}></Route>
-          <Route path="/DetailSports/:id" exact element={<DetailSports />}></Route>
-          <Route path="/Detailbusiness/:id" exact element={<Detailbusiness />}></Route>
+
         </Routes>
         <Footer />
       </Router>

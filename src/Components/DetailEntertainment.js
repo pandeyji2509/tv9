@@ -36,19 +36,15 @@ function Detail() {
       console.log(eval(trending.result));
       seTrending({ loading: false, articles: eval(trending.result) });
     })();
-  }, []);
+  }, [id]);
   useEffect(() => {
     (async () => {
       const art = await fetart();
       console.log(eval(art.result));
       setArt({ loading: false, articles: eval(art.result) });
     })();
-  }, []);
+  }, [id]);
   console.log(art);
-
-    // console.log(GravitasData[key.id-1]);
-    // const Data=GravitasData[key.id-1];
-    // const Myarray=Data.paragraph.split(".");
   return (
     <div className='container'>
       <div className="row mt-2">
@@ -82,31 +78,6 @@ function Detail() {
                         {
                             art.loading?(<p>Data is fetching..</p>):art.articles.length!==0 ? (<p class="text-justify fs-6">{art.articles[0].fields.content}</p>):(<p>No data available....</p>)
                         }
-                            {/* <p class="text-justify fs-6">The drop in couples tieing the knot, which follows Covid
-                                 restrictions keeping tens of millions locked in their homes or compounds for weeks last
-                                year, comes as authorities deal with a declining birth rate and a falling population,
-                                the news agency Reuters reported.
-                                </p> */}
-
- 
-                            {/* <p class="text-justify fs-6">The projects would focus on tasks including prompting marrying
-                                and having children at an appropriate age, encouraging parents to share child-rearing
-                                responsibilities, and curbing high prices and other outdated customs, as per a report by
-                                the Global Times on May 14.
-                            </p>
-                            <p class="text-justify fs-6">Some provinces are also giving young newlyweds an extension of
-                                paid marriage leave.
-                            </p>
-                            <p class="text-justify fs-6">Last year, China's population fell for the first time in six
-                                decades, a drop that is expected to mark the start of a long period of decline in its
-                                citizen numbers with implications for its economy. Reuters reported the country's birth
-                                rate fell last year to 6.77 births per 1,000 people, the lowest on record, from 7.52 in
-                                2021.
-                            </p>
-                            <p class="text-justify fs-6">Demographers warned China would get old before it gets rich, as
-                                its workforce shrank and indebted local governments spent more on their elderly
-                                population.
-                            </p> */}
                         </div>
                     </div>
                 </article>

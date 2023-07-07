@@ -14,7 +14,7 @@ function Science() {
   });
   async function fet(){
     const resp=await fetch(
-      `${process.env.REACT_APP_Base_Url}show_category_articles/?category=Sww`
+      `${process.env.REACT_APP_Base_Url}show_category_articles/?category=science`
     );
     // console.log(resp.json())
     return await resp.json();
@@ -103,7 +103,7 @@ function Science() {
               <h3 class="h4 fw-bold">
                 <a href="#" class="nav-link p-0 m-0 text-dark">{Data.fields.title} </a>
               </h3>
-              <p>{Data.fields.content}</p>
+              <p>{`${Data.fields.content}`.slice(0,100)}......</p>
               <Link to={`/DetailScience/${Data.pk}`} class="fw-bold">continue reading</Link>
             </div>
 )):(
