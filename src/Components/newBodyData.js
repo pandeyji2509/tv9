@@ -64,9 +64,10 @@ function NewsbodyData() {
                   <p> Data is fetching.....</p>
                  ) : newbod.articles.length !== 0 ?  (
                   newbod.articles.map((Data) =>
+                   
                   <div className="latest-new border-left  border-bottom border-right border-2 pb-4 fon">
                       <ul className="navbar-nav d-flex flex-row mt-2 mb-2">
-                        <li className=" dark"><a className="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories}</a></li>
+                        <li className=" dark"><a className="text-dark nav-link fs-6 fw-bold" href="#">{`${Data.fields.categories}`.toUpperCase()}</a></li>
                         <li className="mx-1"><span className="mt-2 d-block date1 ">{`${Data.fields.created_at}`.slice(0,10)}</span></li>
                       </ul>
                       <div className="col-3 float-end">
@@ -95,13 +96,13 @@ function NewsbodyData() {
                   <div className="latest-new read-m">
               <div className="col-9 float-start">
                 <ul className="navbar-nav d-flex flex-row mt-1 mb-1">
-                  <li className=" dark"><a className="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories.split()}</a></li>
+                  <li className=" dark"><a className="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories.toUpperCase()}</a></li>
                   <li className="mx-1"><span className="mt-2 d-block date2">{`${Data.fields.created_at}`.slice(0,10)}</span></li>
                 </ul>
                 <h5 className="h5 fw-bold">
                 <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark fon">{Data.fields.title}</Link>
                 </h5>
-                <Link to={`/Detailhome/${Data.pk}`} className="fw-bold">continue reading</Link>
+                <Link to={`/Detailhome/${Data.pk}`} className="fw-bold">continue reading...</Link>
               </div>
               <div className="col-3 float-end">
                 <img

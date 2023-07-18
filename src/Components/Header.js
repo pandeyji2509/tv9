@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import "./component.css";
 import { IoCloseOutline } from "react-icons/io5";
 import { BiLoaderAlt } from "react-icons/bi";
-import {BiDotsHorizontalRounded} from "react-icons/bi"
+import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { Dropdown } from "@nextui-org/react";
 import logo from "./logo.png";
 import { Link } from 'react-router-dom';
-import { GiHamburgerMenu } from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 export default function Header() {
   const d = new Date();
   const [modal, setModal] = useState(false);
@@ -19,10 +20,19 @@ export default function Header() {
   const spinner = () => {
     setVideoLoading(!videoLoading);
   };
+  const date = new Date();
+  const year = date.getFullYear();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const months = date.getMonth();
+  const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const day = date.getDay();
+  const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dat = date.getDate();
   return (
     <>
       <div className="cont">
-        <div className="row border-bottom pb-3">
+        <div className="row border-bottom pb-3 sx">
           <div className="col-xs-4 col-sm-3 col-md-3 left-icon pl-0">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 flex-row mt-4 float-start">
               <li className="mx-3 mt-1"><a href="#"><i className="bi bi-search fs-6 text-dark"></i></a></li>
@@ -30,13 +40,72 @@ export default function Header() {
             </ul>
           </div>
           <div className="col-xs-4 col-sm-6 col-md-5 mt-3 text-center logo-main">
-            <img height="45px" src={logo} />
+            <Link to="/" className='tv'><h1 className='head'>TV-369</h1></Link>
           </div>
         </div>
-        <div className="row mt-1">
+        <div className='fg'>
+        <div class="dropdown navvv">
+          <button class="dropbtn"><GiHamburgerMenu size={25} /></button>
+          <div class="dropdown-content">
+            <Link to="/gravitas" >Gravitas</Link>
+            <Link to="/world" >World</Link>
+            <Link to="/science" >Science</Link>
+            <Link to="/entertainment" >Entertainment</Link>
+            <Link to="/sports" >Sports</Link>
+            <Link to="/buisness" >Buisness</Link>
+            <Link to="/Future" >Future</Link>
+            <Link to="/Social" >Social</Link>
+            <Link to="/Education" >Education</Link>
+            <Link to="/Personal" >Personal</Link>
+            <Link as={Link} onClick={openModal} className="nav-link bi bi-tv fs-6 band" > Live Tv
+              {modal ? (
+                <section className="modal__bg">
+                  <div className="modal__align">
+                    <div className="modal__content" modal={modal}>
+                      <IoCloseOutline
+                        className="modal__close"
+                        arial-label="Close modal"
+                        onClick={setModal}
+                      />
+                      <div className="modal__video-align">
+                        {videoLoading ? (
+                          <div className="modal__spinner">
+                            <BiLoaderAlt
+                              className="modal__spinner-style"
+                              fadeIn="none"
+                            />
+                          </div>
+                        ) : null}
+                        <iframe
+                          className="modal__video-style"
+                          onLoad={spinner}
+                          loading="lazy"
+                          width="800"
+                          height="500"
+                          src="https://www.youtube.com/embed/4UZrsTqkcW4"
+                          title="YouTube video player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              ) : null}
+            </Link>
+          </div>
+        </div>
+        <p id="current-date" className='mn navvv'><strong>{`${weekday[day]}`}</strong><br />
+              {`${dat} ${month[months]} ${year}`}
+            </p>
+        </div>
+        
+      
+        <div className="row mt-1 navv">
           <div className="col-sm-2">
-            <p id="current-date"><strong>{`${d.toDateString()}`.slice(0,3)}</strong><br />
-            {`${d.toDateString()}`.slice(3,15)}
+            <p id="current-date"><strong>{`${weekday[day]}`}</strong><br />
+              {`${dat} ${month[months]} ${year}`}
             </p>
           </div>
           <div className="col-sm-10">
@@ -67,6 +136,18 @@ export default function Header() {
               </li>
               <li className="nav-item ban" role="presentation">
                 <Link as={Link} className="nav-link ban" to={"/Business"}>Business</Link>
+              </li>
+              <li className="nav-item ban" role="presentation">
+                <Link as={Link} className="nav-link ban" to={"/Future"}>Future</Link>
+              </li>
+              <li className="nav-item ban" role="presentation">
+                <Link as={Link} className="nav-link ban" to={"/Social"}>Social</Link>
+              </li>
+              <li className="nav-item ban " role="presentation">
+                <Link as={Link} className="nav-link ban vvvv" to={"/Education"}>Education</Link>
+              </li>
+              <li className="nav-item ban qqq" role="presentation">
+                <Link as={Link} className="nav-link ban" to={"/Personal"}>Personal Finance</Link>
               </li>
               <li className="nav-item" role="presentation">
                 <Link as={Link} onClick={openModal} className="nav-link bi bi-tv fs-6 band" > Live Tv
@@ -108,63 +189,28 @@ export default function Header() {
                   ) : null}
                 </Link>
               </li>
-              <li className="nav-item ban" role="presentation">
-                <Link as={Link} className="nav-link ban" to={"/Future"}>Future</Link>
-              </li>
-              <li className="nav-item ban" role="presentation">
-                <Link as={Link} className="nav-link ban" to={"/Social"}>Social</Link>
-              </li>
-              <li className="nav-item ban" role="presentation">
-                <Link as={Link} className="nav-link ban" to={"/Education"}>Education</Link>
-              </li>
-              <li className="nav-item ban" role="presentation">
-                <Link as={Link} className="nav-link ban" to={"/Personal"}>Personal Finance</Link>
-              </li>
-              {/* <Dropdown>
-                <Dropdown.Button flat><GiHamburgerMenu size={25} /></Dropdown.Button>
-                <Dropdown.Menu  css={{ width:"$150"}}>
-                  <Dropdown.Item key="new" > Future </Dropdown.Item>
-                  <Dropdown.Item key="new"> Social </Dropdown.Item>
-                  <Dropdown.Item key="new">Education </Dropdown.Item>
-                  <Dropdown.Item key="new"> Personal Finance </Dropdown.Item>
-                  <Dropdown.Item key="new"> Global Governance  </Dropdown.Item>
-                  <Dropdown.Item key="new"> Civic Tech  </Dropdown.Item>
-                  <Dropdown.Item key="new">Data Privacy  </Dropdown.Item>
-                  <Dropdown.Item key="new">Indigenous Rights </Dropdown.Item>
-                  <Dropdown.Item key="new">Mental Health </Dropdown.Item>
-                  <Dropdown.Item key="new"> Emerging Markets </Dropdown.Item>
-                  <Dropdown.Item key="new"> Humanitarian Innovation </Dropdown.Item>
-                  <Dropdown.Item key="new"> Alternative Education </Dropdown.Item>
-                  <Dropdown.Item key="new"> Circular Economy</Dropdown.Item>
-                  <Dropdown.Item key="new"> Impactful Philanthropy </Dropdown.Item>
-                  <Dropdown.Item key="new"> Biohacking </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown> */}
-
-
-            <div className='box' ><BiDotsHorizontalRounded     style={{
-      position: 'absolute',
-      top: '4.5px',
-      right: '7px',
-    }} size={30}/>
-                  <Dropdown>
-            <Dropdown.Button  light>
-            </Dropdown.Button>
-            <Dropdown.Menu>
-                  <Dropdown.Item key="new"> Global Governance  </Dropdown.Item>
-                  <Dropdown.Item key="new"> Civic Tech  </Dropdown.Item>
-                  <Dropdown.Item key="new">Data Privacy  </Dropdown.Item>
-                  <Dropdown.Item key="new">Indigenous Rights </Dropdown.Item>
-                  <Dropdown.Item key="new">Mental Health </Dropdown.Item>
-                  <Dropdown.Item key="new"> Emerging Markets </Dropdown.Item>
-                  <Dropdown.Item key="new"> Humanitarian Innovation </Dropdown.Item>
-                  <Dropdown.Item key="new"> Alternative Education </Dropdown.Item>
-                  <Dropdown.Item key="new"> Circular Economy</Dropdown.Item>
-                  <Dropdown.Item key="new"> Impactful Philanthropy </Dropdown.Item>
-                  <Dropdown.Item key="new"> Biohacking </Dropdown.Item>
-            </Dropdown.Menu>
-             </Dropdown>
-          </div>
+              <div className='box' >
+                <div class="dropdown ">
+                  <button class="dropbtn"><BiDotsHorizontalRounded size={25} /></button>
+                  <div class="dropdown-content dop">
+                  <ul>
+                    <li className='asd1'><Link  to="/education">Education</Link></li>
+                    <li className='asd'><Link to="/personal">Personal Finance</Link></li>
+                    <li className=''><Link className='qqq' to="/global" >Global</Link></li>
+                    <li><Link to="/civic" >Civic</Link></li>
+                    <li><Link to="/privacy" >Data Privacy</Link></li>
+                    <li><Link to="/indigeneous" >Indigeneous</Link></li>
+                    <li><Link to="/mental" >Mental</Link></li>
+                    <li><Link to="/markets" >Emerging Markets</Link></li>
+                    <li><Link to="/humanitarian" >Humanitarian</Link></li>
+                    <li><Link to="/education" >Alternative Education</Link></li>
+                    <li><Link to="/economy" >Circular Economy</Link></li>
+                    <li><Link to="/philanthropy" >Impact Philanthropy</Link></li>
+                    <li><Link to="/biohacking" >Biohacking</Link></li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
             </ul>
           </div>
         </div>
