@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "tv369_frontend",
+      "script": "npm",
+      "args": "start"
+    }
+  ]
+}
