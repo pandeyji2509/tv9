@@ -9,6 +9,12 @@
     /* border-width: 1px 1px 1px 10px; */
     /* outline: 13px solid rgb(254, 81, 81); */
 }
+.para{
+    font-weight: 600;
+    font-size: 17px;
+    color: rgb(109, 109, 109);
+    font-stretch:condensed;
+}
 *{
     font-family: 'Lato', sans-serif;
     font-family: 'Varela Round', sans-serif;

@@ -47,7 +47,7 @@ function NewsbodyData() {
                 <h3 className="h4 fw-bold ">
                 <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark fon" >{Data.fields.title}</Link>
                 </h3>
-                <p>{`${Data.fields.content}`.slice(0,100)}......</p>
+                <p className='para'>{`${Data.fields.content}`.slice(0,100)}......</p>
                 <Link to={`/Detailhome/${Data.pk}`} className="fw-bold">continue reading</Link>
               </div>
             ))
@@ -74,7 +74,7 @@ function NewsbodyData() {
                       <h3 className="h4 fw-bold">
                         <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark">{Data.fields.title} </Link>
                       </h3>
-                      <p>{`${Data.fields.content}`.slice(0,100)}......</p>
+                      <p className='para'>{`${Data.fields.content}`.slice(0,100)}......</p>
                       <Link to={`/Detailhome/${Data.pk}`} className="fw-bold">continue reading...</Link>
                     </div>
              )
