@@ -40,7 +40,7 @@ export default function Header() {
             </ul>
           </div>
           <div className="col-xs-4 col-sm-6 col-md-5 mt-3 text-center logo-main">
-            <Link to="/" className='tv'><h1 className='head'>TV-369</h1></Link>
+            <Link to="/" className='tv'><h1 className='head'>TV 369</h1></Link>
           </div>
         </div>
         <div className='fg'>
