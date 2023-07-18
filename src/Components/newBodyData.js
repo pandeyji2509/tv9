@@ -45,7 +45,7 @@ function NewsbodyData() {
            newbod.articles.map((Data) =>
               <div className="latest-new border-bottom  border-2 pb-4 my-3 fon">
                 <h3 className="h4 fw-bold ">
-                <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark fon" >{Data.fields.title}</Link>
+                <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark titl" >{Data.fields.title}</Link>
                 </h3>
                 <p className='para'>{`${Data.fields.content}`.slice(0,100)}......</p>
                 <Link to={`/Detailhome/${Data.pk}`} className="fw-bold">continue reading</Link>
@@ -72,7 +72,7 @@ function NewsbodyData() {
                       <div className="col-3 float-end">
                       </div>
                       <h3 className="h4 fw-bold">
-                        <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark">{Data.fields.title} </Link>
+                        <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark titl">{Data.fields.title} </Link>
                       </h3>
                       <p className='para'>{`${Data.fields.content}`.slice(0,100)}......</p>
                       <Link to={`/Detailhome/${Data.pk}`} className="fw-bold">continue reading...</Link>
@@ -84,7 +84,7 @@ function NewsbodyData() {
       </div>
 
       <div className="col-sm-4">
-            <h6 className="text-dark h3 fw-bold lat col-12 ">
+            <h6 className="text-dark h3 fw-bold lat col-12 titl">
               Most Read <i className="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             {
