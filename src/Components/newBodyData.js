@@ -37,7 +37,7 @@ function NewsbodyData() {
                 Live <i className="bi bi-arrow-right-circle fs-5"></i>
               </h6>
               {/* player */}
-              <div id="play"><img className='globe' src="https://img.freepik.com/premium-vector/polygonal-map-digital-globe-map-blue-polygons-earth-maps-world-internet-connection-3d-grid-illustration_102902-902.jpg?w=2000" /></div>
+              <div id="play"><img className='globe' src="https://st3.depositphotos.com/10080544/35323/i/450/depositphotos_353231920-stock-photo-technology-network-data-social-media.jpg" /></div>
           { 
             newbod.loading ? (
             <p> Data is fetching.....</p>
