@@ -7,7 +7,7 @@ import { Dropdown } from "@nextui-org/react";
 import logo from "./logo.png";
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+
 export default function Header() {
   const d = new Date();
   const [modal, setModal] = useState(false);
