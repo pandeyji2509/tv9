@@ -3,6 +3,14 @@
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lilita+One&family=Lumanosimo&family=Mukta&family=Poppins:wght@400;500&family=Roboto&family=Varela+Round&display=swap');
 
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lilita+One&family=Lumanosimo&family=Mukta&family=Poppins:wght@400;500&family=Roboto&family=Varela+Round&display=swap');
+  @media only screen and (max-width: 900px) {
+    .vid{
+      display: none;
+
+    }
+  }
+
+
 
 .grid{
   display: grid;

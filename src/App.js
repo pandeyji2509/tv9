@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import Header from './Components/Header';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Gravitas from './Components/Gravitas';
@@ -38,7 +39,6 @@ function App() {
           <Route path="/Sports" exact element={<Sports />}></Route>
           <Route path="/Business" exact element={<Business />}></Route>
           <Route path="/Livetv" exact element={<Livetv />}></Route>
-
         </Routes>
         <Footer />
       </Router>
