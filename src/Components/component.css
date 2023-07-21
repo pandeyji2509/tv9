@@ -9,9 +9,6 @@
 
     }
   }
-
-
-
 .grid{
   display: grid;
   columns: 3;
@@ -38,10 +35,6 @@
   margin-bottom: 20px;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
 .dropdown-content {
   display: none;
@@ -72,7 +65,8 @@
   display: flex;
 }
 .mn{
-  margin-left: 19rem; 
+margin-left: 60vw;
+
 }
 @media only screen and (min-width: 900px) {
   /* bade ke liye ye */
