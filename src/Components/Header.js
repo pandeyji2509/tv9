@@ -53,10 +53,21 @@ export default function Header() {
             <Link to="/entertainment" >Entertainment</Link>
             <Link to="/sports" >Sports</Link>
             <Link to="/buisness" >Buisness</Link>
-            <Link to="/Future" >Future</Link>
-            <Link to="/Social" >Social</Link>
-            <Link to="/Education" >Education</Link>
-            <Link to="/Personal" >Personal</Link>
+            <Link to="/pages/Future" >Future</Link>
+            <Link to="/pages/Social" >Social</Link>
+            <Link  to="/pages/Education">Education</Link>
+            <Link to="/pages/Personal Finance">Personal Finance</Link>
+            <Link to="/pages/Global" >Global</Link>
+            <Link to="/pages/Civic Tech and digital democracy" >Civic</Link>
+            <Link to="/pages/Data Privacy" >Data Privacy</Link>
+            <Link to="/pages/Indigeneous rights and culture" >Indigeneous rights</Link>
+            <Link to="/pages/Mental Health" >Mental Health</Link>
+            <Link to="/pages/Emerging Markets" >Emerging Markets</Link>
+            <Link to="/pages/Humanitarian innovation" >Humanitarian innovation</Link>
+            <Link to="/pages/Alternative Education" >Alternative Education</Link>
+            <Link to="/pages/Circular Economy" >Circular Economy</Link>
+            <Link to="/pages/Impactful Philanthropy" >Impactful Philanthropy</Link>
+            <Link to="/pages/Biohacking and Transhumanism" >Biohacking</Link>
             <Link to="/Livetv" as={Link}  className="nav-link bi bi-tv fs-6 band" > Live Tv
             </Link>
           </div>
@@ -103,17 +114,18 @@ export default function Header() {
                 <Link as={Link} className="nav-link ban" to={"/Business"}>Business</Link>
               </li>
               <li className="nav-item ban" role="presentation">
-                <Link as={Link} className="nav-link ban" to={"/Future"}>Future</Link>
+                <Link as={Link} className="nav-link ban" to={"/pages/Future"}>Future</Link>
               </li>
               <li className="nav-item ban" role="presentation">
-                <Link as={Link} className="nav-link ban" to={"/Social"}>Social</Link>
+                <Link as={Link} className="nav-link ban" to={"/pages/Social"}>Social</Link>
               </li>
               <li className="nav-item ban " role="presentation">
-                <Link as={Link} className="nav-link ban vvvv" to={"/Education"}>Education</Link>
+                <Link as={Link} className="nav-link ban vvvv" to={"/pages/Education"}>Education</Link>
               </li>
               <li className="nav-item ban qqq" role="presentation">
-                <Link as={Link} className="nav-link ban" to={"/Personal"}>Personal Finance</Link>
+                <Link as={Link} className="nav-link ban" to={"/pages/Personal Finance"}>Personal Finance</Link>
               </li>
+             
               <li className="nav-item" role="presentation">
                 <Link as={Link} onClick={openModal} className="nav-link bi bi-tv fs-6 band" > Live Tv
                   {modal ? (
@@ -158,19 +170,19 @@ export default function Header() {
                   <button class="dropbtn"><BiDotsHorizontalRounded size={25} /></button>
                   <div class="dropdown-content dop">
                   <ul>
-                    <li className='asd1'><Link  to="/education">Education</Link></li>
-                    <li className='asd'><Link to="/personal">Personal Finance</Link></li>
-                    <li className=''><Link className='qqq' to="/global" >Global</Link></li>
-                    <li><Link to="/civic" >Civic</Link></li>
-                    <li><Link to="/privacy" >Data Privacy</Link></li>
-                    <li><Link to="/indigeneous" >Indigeneous</Link></li>
-                    <li><Link to="/mental" >Mental</Link></li>
-                    <li><Link to="/markets" >Emerging Markets</Link></li>
-                    <li><Link to="/humanitarian" >Humanitarian</Link></li>
-                    <li><Link to="/education" >Alternative Education</Link></li>
-                    <li><Link to="/economy" >Circular Economy</Link></li>
-                    <li><Link to="/philanthropy" >Impact Philanthropy</Link></li>
-                    <li><Link to="/biohacking" >Biohacking</Link></li>
+                    <li className='asd1'><Link  to="/pages/Education">Education</Link></li>
+                    <li className='asd'><Link to="/pages/Personal Finance">Personal Finance</Link></li>
+                    <li className=''><Link className='qqq' to="/pages/Global" >Global</Link></li>
+                    <li><Link to="/pages/Civic Tech and digital democracy" >Civic</Link></li>
+                    <li><Link to="/pages/Data Privacy" >Data Privacy</Link></li>
+                    <li><Link to="/pages/Indigeneous rights and culture" >Indigeneous rights</Link></li>
+                    <li><Link to="/pages/Mental Health" >Mental Health</Link></li>
+                    <li><Link to="/pages/Emerging Markets" >Emerging Markets</Link></li>
+                    <li><Link to="/pages/Humanitarian innovation" >Humanitarian innovation</Link></li>
+                    <li><Link to="/pages/Alternative Education" >Alternative Education</Link></li>
+                    <li><Link to="/pages/Circular Economy" >Circular Economy</Link></li>
+                    <li><Link to="/pages/Impactful Philanthropy" >Impactful Philanthropy</Link></li>
+                    <li><Link to="/pages/Biohacking and Transhumanism" >Biohacking</Link></li>
                   </ul>
                   </div>
                 </div>

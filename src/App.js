@@ -17,6 +17,7 @@ import DetailWorld from "./Components/DetailWorld";
 import DetailEntertaiment from "./Components/DetailEntertainment";
 import DetailSports from './Components/DetailSports';
 import Detailbusiness from './Components/DetailBuisness';
+import Pages from './Components/Pages';
 function App() {
   return (
     <>
@@ -39,6 +40,7 @@ function App() {
           <Route path="/Sports" exact element={<Sports />}></Route>
           <Route path="/Business" exact element={<Business />}></Route>
           <Route path="/Livetv" exact element={<Livetv />}></Route>
+          <Route path="/pages/:id" exact element={<Pages/>}></Route>
         </Routes>
         <Footer />
       </Router>

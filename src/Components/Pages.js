@@ -4,9 +4,12 @@ import "./World.css"
 import BuisnessData from "./assets/BuisnessData.json";
 import Trending from "./assets/trending.json";
 import Videos from "./assets/videos.json";
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 import Pagination from './Pagination';
-export default function Buisness() {
+export default function Pages() {
+    let { id } = useParams();
+    const key = { id };
+    console.log(key);
   const [newbod, setnewbod] = useState({
     loading: true,
     articles: [],
@@ -17,7 +20,7 @@ export default function Buisness() {
   });
   async function fet(){
     const resp=await fetch(
-      `${process.env.REACT_APP_Base_Url}show_category_articles/?category=buisness`
+      `${process.env.REACT_APP_Base_Url}show_category_articles/?category=${key.id}`
     );
     // console.log(resp.json())
     return await resp.json();
@@ -105,7 +108,7 @@ export default function Buisness() {
         </div>
           <div className="col-sm-6">
             <h6 className="text-dark h4 fw-bold display-inline mb-4">
-              Buisness News <i className="bi bi-arrow-right-circle fs-5"></i>
+              {key.id} News <i className="bi bi-arrow-right-circle fs-5"></i>
             </h6>
             { 
               newbod.loading ? (
