@@ -2,7 +2,8 @@ import React, {useState,useEffect} from 'react'
 import Trending from "./assets/trending.json";
 import ScienceData from "./assets/ScienceData.json";
 import Videos from "./assets/videos.json";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import Pagination from './Pagination';
 function Science() {
   const [newbod, setnewbod] = useState({
     loading: true,
@@ -44,6 +45,20 @@ function Science() {
     })();
   }, []);
   console.log(trending);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(5);
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  var nPages  ;
+  var currentRecords=[] ;
+  console.log(currentRecords)
+  if(!newbod.loading){
+    var curr=newbod.articles;
+    console.log(curr,indexOfFirstRecord,indexOfLastRecord);
+    currentRecords=curr.slice(indexOfFirstRecord,indexOfLastRecord);
+    nPages=Math.ceil(curr.length / recordsPerPage)
+    console.log(currentRecords)
+  }
   return (
     <div className='container'>
         <div class="tab-pane" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
@@ -90,10 +105,10 @@ function Science() {
             newbod.loading ? (
                   <p> Data is fetching.....</p>
 ) :  newbod.articles.length !== 0 ?  (
-    newbod.articles.map((Data) =>
+    currentRecords.map((Data) =>
 <div class="latest-new border-bottom border-2 pb-4">
               <ul class="navbar-nav d-flex flex-row mt-2 mb-2">
-                <li class="mx-1"><span class="mt-2 d-block">{Data.fields.created_at}</span></li>
+                <li class="mx-1"><span class="mt-2 d-block">{`${Data.fields.created_at}`.slice(0,10)}</span></li>
               </ul>
               <div class="col-3 float-end">
                 <img
@@ -109,25 +124,13 @@ function Science() {
 )):(
   <p>No articles found</p>
 )}
-<nav class="mt-3 mb-5" aria-label="Page navigation">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true"><i class="bi bi-arrow-left-circle"></i></span>
-                    <span class="visually-hidden">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true"><i class="bi bi-arrow-right-circle"></i></span>
-                    <span class="visually-hidden">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+{newbod.loading?(<p>fetching..</p>):(
+            <Pagination
+                nPages={nPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
+            )}
             </div> 
             <div class="col-sm-3">
             <h6 class="text-dark h4 fw-bold display-inline mb-4">

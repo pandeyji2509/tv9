@@ -2,8 +2,11 @@ import React ,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import NewsbodyDatas from "./assets/newsbody.json";
 import "./newBody.css";
+import Pagination from './Pagination';
+import ReactPaginate from 'react-paginate';
 import dummy from './assets/dummy.json';
 function NewsbodyData() {
+
 
   async function fet(){
     const resp=await fetch(
@@ -16,17 +19,34 @@ function NewsbodyData() {
     loading: true,
     articles: [],
   });
+
   // fet();
   useEffect(() => {
     (async () => {
       const newbod = await fet();
-      console.log(eval(newbod.result));
+     
+      // console.log(eval(newbod.result));
       setnewbod({ loading: false, articles: eval(newbod.result) });
+      // console.log(eval(newbod.result));
+      // 
     })();
   }, []);
   console.log(newbod);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(5);
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  var nPages  ;
+  var currentRecords=[] ;
+  console.log(currentRecords)
+  if(!newbod.loading){
+    var curr=newbod.articles;
+    console.log(curr,indexOfFirstRecord,indexOfLastRecord);
+    currentRecords=curr.slice(indexOfFirstRecord,indexOfLastRecord);
+    nPages=Math.ceil(curr.length / recordsPerPage)
+    console.log(currentRecords)
+  }
 
- 
   return (
     <div className="cont" id="">
       <div className="tab-content" id="pills-tabContent">
@@ -42,7 +62,7 @@ function NewsbodyData() {
             newbod.loading ? (
             <p> Data is fetching.....</p>
         ) : newbod !== 0 ? (
-           newbod.articles.map((Data) =>
+           currentRecords.map((Data) =>
               <div className="latest-new border-bottom  border-2 pb-4 my-3 fon">
                 <h3 className="h4 fw-bold ">
                 <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark titl" >{Data.fields.title}</Link>
@@ -63,7 +83,7 @@ function NewsbodyData() {
               newbod.loading ? (
                   <p> Data is fetching.....</p>
                  ) : newbod.articles.length !== 0 ?  (
-                  newbod.articles.map((Data) =>
+                  currentRecords.map((Data) =>
                    
                   <div className="latest-new border-left  border-bottom border-right border-2 pb-4 fon">
                       <ul className="navbar-nav d-flex flex-row mt-2 mb-2">
@@ -92,7 +112,7 @@ function NewsbodyData() {
               newbod.loading ? (
                   <p> Data is fetching.....</p>
                  ) : newbod.articles.length !== 0 ?  (
-                 newbod.articles.map((Data) =>
+                 currentRecords.map((Data) =>
                   <div className="latest-new read-m">
               <div className="col-9 float-start">
                 <ul className="navbar-nav d-flex flex-row mt-1 mb-1">
@@ -116,6 +136,13 @@ function NewsbodyData() {
                   <p>No results to show</p>
                 )}
             </div>
+            {newbod.loading?(<p>fetching..</p>):(
+            <Pagination
+                nPages={nPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
+            )}
         </div>
         <div className="container mb-3 mt-3">
           <div className="row mt-2 bg-primary p-3">

@@ -5,6 +5,7 @@ import BuisnessData from "./assets/BuisnessData.json";
 import Trending from "./assets/trending.json";
 import Videos from "./assets/videos.json";
 import { Link } from 'react-router-dom';
+import Pagination from './Pagination';
 export default function Sports() {
   const [newbod, setnewbod] = useState({
     loading: true,
@@ -46,7 +47,20 @@ export default function Sports() {
     })();
   }, []);
   console.log(trending);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(5);
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  var nPages  ;
+  var currentRecords=[] ;
+  console.log(currentRecords)
+  if(!newbod.loading){
+    var curr=newbod.articles;
+    console.log(curr,indexOfFirstRecord,indexOfLastRecord);
+    currentRecords=curr.slice(indexOfFirstRecord,indexOfLastRecord);
+    nPages=Math.ceil(curr.length / recordsPerPage)
+    console.log(currentRecords)
+  }
     return (
         <div className='container'>
         <div className="">
@@ -97,10 +111,10 @@ export default function Sports() {
               newbod.loading ? (
                   <p> Data is fetching.....</p>
 ) :  newbod.articles.length !== 0 ?  (
-    newbod.articles.map((Data) =>
+    currentRecords.map((Data) =>
             <div className="latest-new border-bottom border-2 pb-4">
 <ul className="navbar-nav d-flex flex-row mt-2 mb-2">
-  <li className="mx-1"><span className="mt-2 d-block">{Data.fields.created_at}</span></li>
+  <li className="mx-1"><span className="mt-2 d-block">{`${Data.fields.created_at}`.slice(0,10)}</span></li>
 </ul>
 <div className="col-3 float-end">
   <img
@@ -117,6 +131,13 @@ export default function Sports() {
           )  ):(
             <p>No articles found</p>
           )}
+          {newbod.loading?(<p>fetching..</p>):(
+            <Pagination
+                nPages={nPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
+            )}
            </div>
            <div className="col-sm-3">
             <h6 className="text-dark h4 fw-bold display-inline mb-4">
