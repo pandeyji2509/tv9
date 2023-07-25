@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lilita+One&family=Lumanosimo&family=Mukta&family=Poppins:wght@400;500&family=Roboto&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lilita+One&family=Lumanosimo&family=Mukta&family=Poppins:wght@400;500&family=Roboto&family=Varela+Round&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lilita+One&family=Lumanosimo&family=Mukta&family=Poppins:wght@400;500&family=Roboto&family=Varela+Round&display=swap');
-
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lilita+One&family=Lumanosimo&family=Mukta&family=Poppins:wght@400;500&family=Roboto&family=Varela+Round&display=swap');
-  @media only screen and (max-width: 900px) {
-    .vid{
+@media only screen and (max-width: 900px) {
+  .vid{
       display: none;
-
     }
   }
 .grid{
@@ -63,11 +61,9 @@
 }
 .fg{
   display: flex;
+  margin-top: 20px;
 }
-.mn{
-margin-left: 60vw;
 
-}
 @media only screen and (min-width: 900px) {
   /* bade ke liye ye */
   .navvv{
@@ -98,7 +94,7 @@ ul{
   font-weight: 100;
   color: #000;
   font-family: 'Lato', sans-serif;
- font-family: 'Lilita One', cursive;
+  font-family: 'Lilita One', cursive;
 /* font-family: 'Lumanosimo', cursive;
 font-family: 'Mukta', sans-serif;
 font-family: 'Poppins', sans-serif;
@@ -241,7 +237,16 @@ ul li.dark {
     height: 500px !important;
   }
 }
-
+.pb-3 {
+  padding-bottom: 0rem!important;
+}
+.mn{
+  margin-left: 110px;
+}
+.sea{
+  margin-left: 30vw;
+  margin-top: 12px;
+}
 @media only screen and (max-width: 570px) {
   .card-li-b li {
     width: 100% !important;
@@ -253,7 +258,7 @@ ul li.dark {
   }
 
   .left-icon {
-    width: 30%;
+    width: 23%;
     float: left;
   }
 

@@ -25,8 +25,8 @@ function NewsbodyData() {
     (async () => {
       const newbod = await fet();
      
-      // console.log(eval(newbod.result));
-      setnewbod({ loading: false, articles: eval(newbod.result) });
+      // console.log(eval(newbod.result.reverse));
+      setnewbod({ loading: false, articles: eval(newbod.result.reverse()) });
       // console.log(eval(newbod.result));
       // 
     })();
@@ -144,13 +144,13 @@ function NewsbodyData() {
             />
             )}
         </div>
-        <div className="container mb-3 mt-3">
+     {/* <div className="container mb-3 mt-3">
           <div className="row mt-2 bg-primary p-3">
             <div className="col-sm-2 text-white">
               <p className="mb-0"><strong>Market Snapshot</strong></p>
               <span>11:40 PM</span>
             </div>
-            <div className="col-sm-8">
+             <div className="col-sm-8">
               <ul className="nav justify-content-center text-white">
                 <li className="nav-item">
                   <a className="nav-link active text-white" aria-current="page" href="#">Futures</a>
@@ -175,8 +175,8 @@ function NewsbodyData() {
             </div>
             <div className="col-sm-2 d-flex navbar-nav  flex-row-reverse">
               <a href="#" className="block  fs-6 nav-link" >View All</a>
-            </div>
-            <div className="col-sm-12">
+            </div> 
+             <div className="col-sm-12">
               <ul className="p-0  card-li-b">
                 <li className="bg-white list-group-item p-4">
                   <div className="col-12">
@@ -220,13 +220,13 @@ function NewsbodyData() {
                     </p>
                     <p>2548.55 <span className="mx-1">-0.57</span></p>
                     <div className=""><i className="bi bi-clock"></i> 10:20PM <i className="bi bi-graph-up fs-3 mx-3"></i></div>
-                  </div>
+                  </div> 
               </ul>
-            </div>
-          </div>
+            </div> 
+           </div>
+        </div> */}
         </div> 
-        </div>
-      </div>
+      </div> 
     </div>
   )
 }

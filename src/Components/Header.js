@@ -32,18 +32,9 @@ export default function Header() {
   return (
     <>
       <div className="cont">
-        <div className="row border-bottom pb-3 sx">
+        <div className="row border-bottom sx">
           <div className="col-xs-4 col-sm-3 col-md-3 left-icon pl-0">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 flex-row mt-4 float-start">
-              <li className="mx-3 mt-1"><a href="#"><i className="bi bi-search fs-6 text-dark"></i></a></li>
-              {/* <li className="mx-3 mt-1"><a href="#"><i className="bi bi-bell-fill fs-6 text-dark"></i></a></li> */}
-            </ul>
-          </div>
-          <div className="col-xs-4 col-sm-6 col-md-5 mt-3 text-center logo-main">
-            <Link to="/" className='tv'><h1 className='head'>TV 369</h1></Link>
-          </div>
-        </div>
-        <div className='fg'>
+          <div className='fg '>
         <div class="dropdown navvv">
           <button class="dropbtn"><GiHamburgerMenu size={25} /></button>
           <div class="dropdown-content">
@@ -68,21 +59,32 @@ export default function Header() {
             <Link to="/pages/Circular Economy" >Circular Economy</Link>
             <Link to="/pages/Impactful Philanthropy" >Impactful Philanthropy</Link>
             <Link to="/pages/Biohacking and Transhumanism" >Biohacking</Link>
-            <Link to="/Livetv" as={Link}  className="nav-link bi bi-tv fs-6 band" > Live Tv
-            </Link>
+            <Link to="/Livetv" as={Link}  className="nav-link bi bi-tv fs-6 band" > Live Tv </Link>
           </div>
         </div>
-        <p id="current-date" className='mn navvv'><strong>{`${weekday[day]}`}</strong><br />
+        <p className='sea'><a href="#"><i className="bi bi-search fs-6 text-dark sea navvv"></i></a></p>
+            <p id="current-date" className='mn vvvv navvv'><strong>{`${weekday[day]}`}</strong><br />
               {`${dat} ${month[months]} ${year}`}
-            </p>
+            </p>  
         </div>
-        
+            {/* <ul className="navbar-nav ms-auto mb-2 mb-lg-0 flex-row mt-4 float-start">
+               <li className="mx-3 mt-1"><a href="#"><i className="bi bi-bell-fill fs-6 text-dark"></i></a></li> 
+            </ul>   */}
+        </div>
       
+          <div className="col-xs-4 col-sm-6 col-md-5 mt-3 text-center logo-main">
+            <Link to="/" className='tv'><h1 className='head'>TV 369</h1></Link>
+          </div> 
+        </div>   
+        <p className='navvv'><strong>{`${weekday[day]}`}</strong><br />
+              {`${dat} ${month[months]} ${year}`}
+            </p> 
         <div className="row mt-1 navv">
           <div className="col-sm-2">
             <p id="current-date"><strong>{`${weekday[day]}`}</strong><br />
               {`${dat} ${month[months]} ${year}`}
             </p>
+            
           </div>
           <div className="col-sm-10">
             <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
