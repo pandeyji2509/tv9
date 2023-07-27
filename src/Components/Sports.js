@@ -60,6 +60,18 @@ export default function Sports() {
     currentRecords=curr.slice(indexOfFirstRecord,indexOfLastRecord);
     nPages=Math.ceil(curr.length / recordsPerPage)
     console.log(currentRecords)
+  }  
+  const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  function tConvert (time) {
+    // Check correct time format and split into components
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { // If time format correct
+      time = time.slice (1);  // Remove full string match value
+      time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join (''); // return adjusted time or original string
   }
     return (
         <div className='container'>
@@ -111,7 +123,7 @@ export default function Sports() {
     currentRecords.map((Data) =>
             <div class="latest-new border-bottom border-2 pb-4">
 <ul class="navbar-nav d-flex flex-row mt-2 mb-2">
-  <li class="mx-1"><span class="mt-2 d-block">{`${Data.fields.created_at}`.slice(0,10)}</span></li>
+  <li class="mx-1"><span class="mt-2 d-block">{`${Data.fields.created_at}`.slice(8,10)} {month[parseInt(`${Data.fields.created_at}`.slice(5,7))-1]} {`${Data.fields.created_at}`.slice(0,4)}   {tConvert(`${Data.fields.created_at}`.slice(11,16))}</span></li>
 </ul>
 <div class="col-3 float-end">
   <img

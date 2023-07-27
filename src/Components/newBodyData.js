@@ -26,7 +26,7 @@ function NewsbodyData() {
       const newbod = await fet();
      
       // console.log(eval(newbod.result.reverse));
-      setnewbod({ loading: false, articles: eval(newbod.result.reverse()) });
+      setnewbod({ loading: false, articles: eval(newbod.result) });
       // console.log(eval(newbod.result));
       // 
     })();
@@ -46,7 +46,18 @@ function NewsbodyData() {
     nPages=Math.ceil(curr.length / recordsPerPage)
     console.log(currentRecords)
   }
-
+  const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  function tConvert (time) {
+    // Check correct time format and split into components
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { // If time format correct
+      time = time.slice (1);  // Remove full string match value
+      time[5] = +time[0] < 12 ? 'am' : 'pm'; // Set AM/PM
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join (''); // return adjusted time or original string
+  }
   return (
     <div className="cont" id="">
       <div className="tab-content" id="pills-tabContent">
@@ -88,7 +99,7 @@ function NewsbodyData() {
                   <div className="latest-new border-left  border-bottom border-right border-2 pb-4 fon">
                       <ul className="navbar-nav d-flex flex-row mt-2 mb-2">
                         <li className=" dark"><a className="text-dark nav-link fs-6 fw-bold" href="#">{`${Data.fields.categories}`.toUpperCase()}</a></li>
-                        <li className="mx-1"><span className="mt-2 d-block date1 ">{`${Data.fields.created_at}`.slice(0,10)}</span></li>
+                        <li className="mx-1"><span className="mt-2 d-block date1 ">{`${Data.fields.created_at}`.slice(8,10)} {month[parseInt(`${Data.fields.created_at}`.slice(5,7))-1]} {`${Data.fields.created_at}`.slice(0,4)}   {tConvert(`${Data.fields.created_at}`.slice(11,16))}</span></li>
                       </ul>
                       <div className="col-3 float-end">
                       </div>
@@ -117,7 +128,7 @@ function NewsbodyData() {
               <div className="col-9 float-start">
                 <ul className="navbar-nav d-flex flex-row mt-1 mb-1">
                   <li className=" dark"><a className="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories.toUpperCase()}</a></li>
-                  <li className="mx-1"><span className="mt-2 d-block date2">{`${Data.fields.created_at}`.slice(0,10)}</span></li>
+                  <li className="mx-1"><span className="mt-2 d-block date2">{`${Data.fields.created_at}`.slice(8,10)}{`${Data.fields.created_at}`.slice(4,8)}{`${Data.fields.created_at}`.slice(0,4)} </span></li>
                 </ul>
                 <h5 className="h5 fw-bold">
                 <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark fon">{Data.fields.title}</Link>
