@@ -128,7 +128,7 @@ function NewsbodyData() {
               <div className="col-9 float-start">
                 <ul className="navbar-nav d-flex flex-row mt-1 mb-1">
                   <li className=" dark"><a className="text-dark nav-link fs-6 fw-bold" href="#">{Data.fields.categories.toUpperCase()}</a></li>
-                  <li className="mx-1"><span className="mt-2 d-block date2">{`${Data.fields.created_at}`.slice(8,10)}{`${Data.fields.created_at}`.slice(4,8)}{`${Data.fields.created_at}`.slice(0,4)} </span></li>
+                  <li className="mx-1"><span className="mt-2 d-block date1 ">{`${Data.fields.created_at}`.slice(8,10)} {month[parseInt(`${Data.fields.created_at}`.slice(5,7))-1]} {`${Data.fields.created_at}`.slice(0,4)}   {tConvert(`${Data.fields.created_at}`.slice(11,16))}</span></li>
                 </ul>
                 <h5 className="h5 fw-bold">
                 <Link to={`/Detailhome/${Data.pk}`} className="nav-link p-0 m-0 text-dark fon">{Data.fields.title}</Link>
