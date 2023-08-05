@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import "./component.css";
 import { IoCloseOutline } from "react-icons/io5";
 import { BiLoaderAlt } from "react-icons/bi";
@@ -7,7 +7,7 @@ import { Dropdown } from "@nextui-org/react";
 import logo from "./logo.png";
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { useLocation } from 'react-router-dom';
 export default function Header() {
   const d = new Date();
   const [modal, setModal] = useState(false);
@@ -16,10 +16,28 @@ export default function Header() {
   const openModal = () => {
     setModal(!modal);
   };
-
+ 
   const spinner = () => {
     setVideoLoading(!videoLoading);
   };
+  const[hov,sethov]= useState(false);
+  const[hove,sethove]= useState(false);
+  const hover=()=>{
+    sethov(true);
+  }
+  const hover1=()=>{
+    sethove(true);
+  }
+  const location = useLocation();
+  useEffect(() => {
+    sethov(false);
+    console.log("location",location);
+  }, [location.pathname]);
+  useEffect(()=>{
+    sethove(false);
+    console.log("location",location);
+  },[location.pathname])
+  // $('.in,.open').removeClass('in open');
   const date = new Date();
   const year = date.getFullYear();
   const hours = date.getHours();
@@ -37,29 +55,32 @@ export default function Header() {
           <div className='fg '>
         <div class="dropdown navvv">
           <button class="dropbtn"><GiHamburgerMenu size={25} /></button>
-          <div class="dropdown-content">
-            <Link to="/gravitas" >Gravitas</Link>
-            <Link to="/world" >World</Link>
-            <Link to="/science" >Science</Link>
-            <Link to="/entertainment" >Entertainment</Link>
-            <Link to="/sports" >Sports</Link>
-            <Link to="/buisness" >Buisness</Link>
-            <Link to="/pages/Future" >Future</Link>
-            <Link to="/pages/Social" >Social</Link>
-            <Link  to="/pages/Education">Education</Link>
-            <Link to="/pages/Personal Finance">Personal Finance</Link>
-            <Link to="/pages/Global" >Global</Link>
-            <Link to="/pages/Civic Tech and digital democracy" >Civic</Link>
-            <Link to="/pages/Data Privacy" >Data Privacy</Link>
-            <Link to="/pages/Indigeneous rights and culture" >Indigeneous rights</Link>
-            <Link to="/pages/Mental Health" >Mental Health</Link>
-            <Link to="/pages/Emerging Markets" >Emerging Markets</Link>
-            <Link to="/pages/Humanitarian innovation" >Humanitarian innovation</Link>
-            <Link to="/pages/Alternative Education" >Alternative Education</Link>
-            <Link to="/pages/Circular Economy" >Circular Economy</Link>
-            <Link to="/pages/Impactful Philanthropy" >Impactful Philanthropy</Link>
-            <Link to="/pages/Biohacking and Transhumanism" >Biohacking</Link>
-            <Link to="/Livetv" as={Link}  className="nav-link bi bi-tv fs-6 band" > Live Tv </Link>
+          <div class={`dropdown-content ${hove?"noHover":""}`}>
+          <ul>
+            <li onClick={()=>hover1()}><Link to="/gravitas" >Gravitas</Link></li>
+            <li onClick={()=>hover1()}><Link to="/world" >World</Link></li>
+            <li onClick={()=>hover1()}><Link to="/science" >Science</Link></li>
+            <li onClick={()=>hover1()}><Link to="/entertainment" >Entertainment</Link></li>
+            <li onClick={()=>hover1()}><Link to="/sports" >Sports</Link></li>
+            <li onClick={()=>hover1()}><Link to="/buisness" >Buisness</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Future" >Future</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Social" >Social</Link></li>
+            <li onClick={()=>hover1()}><Link  to="/pages/Education">Education</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Personal Finance">Personal Finance</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Global" >Global</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Civic Tech and digital democracy" >Civic</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Data Privacy" >Data Privacy</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Indigeneous rights and culture" >Indigeneous rights</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Mental Health" >Mental Health</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Emerging Markets" >Emerging Markets</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Humanitarian innovation" >Humanitarian innovation</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Alternative Education" >Alternative Education</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Circular Economy" >Circular Economy</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Impactful Philanthropy" >Impactful Philanthropy</Link></li>
+            <li onClick={()=>hover1()}><Link to="/pages/Biohacking and Transhumanism" >Biohacking</Link></li>
+            <li onClick={()=>hover1()}><Link to="/Livetv" as={Link}  className="nav-link bi bi-tv fs-6 band" > Live Tv </Link></li>
+          </ul>
+
           </div>
         </div>
         <p className='sea'><a href="#"><i className="bi bi-search fs-6 text-dark sea navvv"></i></a></p>
@@ -170,21 +191,21 @@ export default function Header() {
               <div className='box' >
                 <div class="dropdown ">
                   <button class="dropbtn"><BiDotsHorizontalRounded size={25} /></button>
-                  <div class="dropdown-content dop">
+                  <div class={`dropdown-content  dop ${hov?"noHover":""}`}>
                   <ul>
-                    <li className='asd1'><Link  to="/pages/Education">Education</Link></li>
-                    <li className='asd'><Link to="/pages/Personal Finance">Personal Finance</Link></li>
-                    <li className=''><Link className='qqq' to="/pages/Global" >Global</Link></li>
-                    <li><Link to="/pages/Civic Tech and digital democracy" >Civic</Link></li>
-                    <li><Link to="/pages/Data Privacy" >Data Privacy</Link></li>
-                    <li><Link to="/pages/Indigeneous rights and culture" >Indigeneous rights</Link></li>
-                    <li><Link to="/pages/Mental Health" >Mental Health</Link></li>
-                    <li><Link to="/pages/Emerging Markets" >Emerging Markets</Link></li>
-                    <li><Link to="/pages/Humanitarian innovation" >Humanitarian innovation</Link></li>
-                    <li><Link to="/pages/Alternative Education" >Alternative Education</Link></li>
-                    <li><Link to="/pages/Circular Economy" >Circular Economy</Link></li>
-                    <li><Link to="/pages/Impactful Philanthropy" >Impactful Philanthropy</Link></li>
-                    <li><Link to="/pages/Biohacking and Transhumanism" >Biohacking</Link></li>
+                    <li className='asd1' onClick={()=>hover()}><Link  to="/pages/Education">Education</Link></li>
+                    <li className='asd' onClick={()=>hover()}><Link to="/pages/Personal Finance">Personal Finance</Link></li>
+                    <li className='' onClick={()=>hover()}><Link className='qqq' to="/pages/Global" >Global</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Civic Tech and digital democracy" >Civic</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Data Privacy" >Data Privacy</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Indigeneous rights and culture" >Indigeneous rights</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Mental Health" >Mental Health</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Emerging Markets" >Emerging Markets</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Humanitarian innovation" >Humanitarian innovation</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Alternative Education" >Alternative Education</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Circular Economy" >Circular Economy</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Impactful Philanthropy" >Impactful Philanthropy</Link></li>
+                    <li onClick={()=>hover()}><Link to="/pages/Biohacking and Transhumanism" >Biohacking</Link></li>
                   </ul>
                   </div>
                 </div>

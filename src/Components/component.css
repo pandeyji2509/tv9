@@ -240,6 +240,7 @@ ul li.dark {
 .pb-3 {
   padding-bottom: 0rem!important;
 }
+.show {display: block;}
 .mn{
   margin-left: 110px;
 }
@@ -337,4 +338,127 @@ ul li.dark {
 }
 .dop{
   margin-left: -70px;
+}
+
+
+/**************************************************************/
+
+/* @import url("../../UI/primary.css"); */
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo {
+  height: 24px;
+  width: 24px;
+  margin-inline: 8px;
+  margin-top:-20px;
+  margin-left:-5px;
+  margin-right: 20px;
+  align-items: center;
+}
+.show{
+  display: none;
+}
+
+p {
+  color: var(--color-dark-variant);
+}
+
+#menu-bar{
+  display: none;
+}
+.navigation-menu-item span {
+  font-size: 10px;
+}
+header{
+  padding: 20px;
+  /* display: flex; */
+}
+
+.hamburger{
+  height: 24px;
+  width: 24px;
+  margin-inline: 8px;
+  margin-left: 20px;
+  margin-top: 0px ;
+}
+
+.navbar2{
+  position: absolute;
+  margin-top: 35px;
+  margin-right: 10px;
+  right: 0;
+  display: none;
+  border-radius: 1px 1px 10px 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width: 15%;
+}
+
+.men{
+  list-style-type:none;
+  margin-left: -15px;
+  margin-top:15px;
+}
+.link{
+  width: 80%;
+  text-decoration: none;
+  color:  black;
+}
+.link:hover{
+  color: var(--secondary-color);
+}
+.m{
+  display: flex;
+}
+ol, ul {
+  padding-left: 0rem;
+}
+.noHover{
+  pointer-events: none;
+}
+#hamburger{
+  margin-top: -50px;
+  display: none;
+}
+#hamburger:checked~.navbar2{
+  display: initial;
+  background: white ;
+  color: rgb(0, 0, 0);
+}
+#menu-bar:checked~.navbar1{
+  display: initial;
+  background:var(--primary-color) ;
+  color: white;
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Mulish:wght@400;700;800;900;1000&family=Playfair+Display&display=swap");
+
+:root {
+  --primary-color: #118ab2;
+  --secondary-color: #ffd166;
+  --section-color: #364e60;
+  --color-white: #ffffff;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-dark: #363949;
+  --color-info-dark: #7d8da1;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+  --color-btn-hover: #ecf0f1;
+  --color-icon-inactive: #8ec3d8;
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+
+  --logo-font-family: "Inter", sans-serif;
+  --content-font-family: "Mulish", sans-serif;
+
+  --padding-nav: 7rem;
 }
