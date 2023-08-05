@@ -98,6 +98,23 @@ font-family: 'Roboto', sans-serif;
         margin:0rem;    
     }
 }
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #c2c6cd;
+    border-color: #000000;
+}
+.page-link:hover {
+    z-index: 2;
+    color: #0a58ca;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.page-link {
+    border: none;
+    color: #000 !important;
+}
 .expo{
     float: left;
 }

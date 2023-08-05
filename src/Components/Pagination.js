@@ -18,8 +18,7 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
             <a className="page-link" 
                 onClick={prevPage} 
                 href='#'>
-                
-                Previous
+                <span aria-hidden="true"><i class="bi bi-arrow-left-circle"></i></span>
             </a>
         </li>
         {pageNumbers.map(pgNumber => (
@@ -38,8 +37,7 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
             <a className="page-link" 
                 onClick={nextPage}
                 href='#'>
-                
-                Next
+                <span aria-hidden="true"><i class="bi bi-arrow-right-circle"></i></span>
             </a>
         </li>
     </ul>
